@@ -1,0 +1,12 @@
+/* Définition de la couleur de remplissage des étoiles */
+.filled-star .ui-rating-star.ui-rating-star-on {
+  color: yellow;
+}
+section {
+  background-color: #E8C4D0; /* Rose */
+  padding: 0;
+  height: 150vh; /* 150% de la hauteur de l'écran */
+  height: 100%;
+  width: 100%;
+  font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+}

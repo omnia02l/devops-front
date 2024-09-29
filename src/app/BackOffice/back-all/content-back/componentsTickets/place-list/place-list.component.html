@@ -1,0 +1,42 @@
+<div class="card">
+  <button pButton label="Ajouter un Lieu" icon="pi pi-plus" class="p-button-success add-btn" (click)="addNewPlace()"></button>
+  <p-table [value]="places" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID Lieu</th>
+        <th>Seat Number</th>
+        <th>Occupation</th>
+        <th>Selected</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-place let-i="rowIndex">
+      <tr *ngIf="editingIndex !== i; else editMode">
+        <td>{{ place.idPlace }}</td>
+        <td>{{ place.seatNumber }}</td>
+        <td>{{ place.isOccupied ? 'Oui' : 'Non' }}</td>
+        <td>{{ place.isSelected ? 'Oui' : 'Non' }}</td>
+        <td>
+          <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2 edit-btn" (click)="editPlace(i)"></button>
+          <button pButton icon="pi pi-trash" class="p-button-rounded p-button-warning delete-btn" (click)="deletePlace(place.idPlace)"></button>
+        </td>
+      </tr>
+      <ng-template #editMode>
+        <tr>
+          <td>{{ place.idPlace }}</td>
+          <td><input pInputText type="text" [(ngModel)]="place.seatNumber" name="seatNumber-{{i}}"></td>
+          <td>
+            <p-checkbox binary="true" [(ngModel)]="place.isOccupied" name="occupation-{{i}}"></p-checkbox>
+          </td>
+          <td>
+            <p-checkbox binary="true" [(ngModel)]="place.isSelected" name="selected-{{i}}"></p-checkbox>
+          </td>
+          <td>
+            <button pButton icon="pi pi-check" class="p-button-rounded p-button-success mr-2" (click)="onSubmit(place, i)"></button>
+            <button pButton icon="pi pi-times" class="p-button-rounded p-button-warning" (click)="cancelEdit()"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </ng-template>
+  </p-table>
+</div>

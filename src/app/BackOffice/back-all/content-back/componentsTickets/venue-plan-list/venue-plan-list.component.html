@@ -1,0 +1,42 @@
+<div class="col-12">
+  <div class="card px-6 py-6">
+    
+    <div class="container">
+      <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+          <div class="my-2">
+            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2 add-btn" (click)="openVenuePlanDialog()"></button>
+          </div>
+        </ng-template>
+      </p-toolbar>
+    </div>
+    <!-- venue-plan-list.component.html -->
+    <p-table [value]="venuePlans" [paginator]="true" [rows]="5">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Total des Sièges</th>
+          <th>length (S)</th>
+          <th>width (S)</th>
+          <th>Row Label</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-vp>
+        <tr>
+          <td>{{ vp.totalSeats }}</td>
+          <td>{{ vp.length_S }}</td>
+          <td>{{ vp.width_S }}</td>
+          <td>
+            <ng-container *ngFor="let row of vp.seatStructure | keyvalue">
+              {{ row.key }}: {{ row.value }} 
+            </ng-container>
+          </td>
+          <td>
+            <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2 edit-btn" (click)="openVenuePlanDialog(vp)"></button>
+            <button pButton icon="pi pi-trash" class="p-button-rounded p-button-warning delete-btn" (click)="deleteVenuePlan(vp.idPlan)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

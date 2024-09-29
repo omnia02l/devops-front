@@ -1,0 +1,7 @@
+<div *ngFor="let row of rowMap.keys()">
+    <div>{{ row }} |</div>
+    <div *ngFor="let place of rowMap.get(row)">
+      <span>{{ place.seatNumber }}</span>
+    </div>
+  </div>
+  

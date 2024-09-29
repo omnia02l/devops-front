@@ -1,0 +1,18 @@
+<div *ngIf="product" class="card big-card text-center">
+  <div class="card-header" style="background-color: #c42057;">
+    <h2 class="text-dark">{{ product.title }}</h2>
+  </div>
+  <div class="card-body">
+    <div class="product-image">
+      <img *ngIf="product['imagestore']" [src]="product['imagestore'].imageUrl" alt="{{ product.title }}">
+    </div>
+    <p class="text-dark">Price: {{ product.price | currency }}</p>
+    <div *ngFor="let property of getProductProperties()">
+      <p class="text-dark">{{ property.name }}: {{ product[property.key] }}</p>
+    </div>
+  </div>
+  <div class="card-footer d-flex justify-content-center">
+    <button class="btn btn-primary custom-btn mr-3" (click)="onUpdateProduct(product.productId)" style="background-color: #8B0026; border-color: #8B0026;">Update Product</button>
+    <button class="btn btn-danger custom-btn" (click)="onDeleteProduct(product.productId)" style="background-color: #3b0311; border-color: #660019;">Delete Product</button>
+  </div>
+</div>

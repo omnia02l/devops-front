@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <!-- Bouton pour ajouter une performance -->
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <a routerLink="/admin/add-town-and-venues" class="btn btn-primary">
+        Add Town&venues
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="townsWithVenues$ | async as townsWithVenues" class="row">
+    <div class="col-md-4" *ngFor="let townWithVenue of townsWithVenues">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3 class="card-title">{{ townWithVenue.townName }}</h3>
+        </div>
+        <div class="card-body">
+          <h5>Venues:</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let venue of townWithVenue.venues">
+              <strong>{{ venue.vname }}</strong> <br>
+              {{ venue.vaddress }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

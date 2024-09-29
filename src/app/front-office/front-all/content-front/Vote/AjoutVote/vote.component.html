@@ -1,0 +1,15 @@
+<!-- vote.component.html -->
+<div class="container">
+  <h2 class="new-vote-label">Vote for Performance</h2>
+  <form #voteForm="ngForm" (ngSubmit)="addVote(voteForm)">
+    <div class="form-group">
+      <label for="score">Score:</label>
+      <input type="number" id="score" class="form-control" name="score" required>
+    </div>
+    <div class="form-group">
+      <label for="comment">Comment (optional):</label>
+      <input type="text" id="comment" class="form-control" name="comment" [(ngModel)]="newVote.com">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!voteForm.valid">Submit Vote</button>
+  </form>
+</div>

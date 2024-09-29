@@ -1,0 +1,25 @@
+<div class="competition-container">
+  <div *ngFor="let competitionPerformance of competitionPerformances" class="competition-card">
+    <div class="card-header">
+      <h3>Competition: {{ competitionPerformance.compname }}</h3>
+      <span class="date-badge">
+        {{ competitionPerformance.startdate | date:'shortDate' }} - {{ competitionPerformance.enddate | date:'shortDate' }}
+      </span>
+    </div>
+    <div class="card-body">
+
+  <ul class="performances-list">
+   
+    <li *ngFor="let performance of competitionPerformance.performances" class="performance-item">
+      <h4>{{ performance.perftitle }}</h4>
+      <p>Performance Date: {{ performance.perfdate | date:'shortDate' }}</p>
+      <p>Description: {{ performance.pdescreption }}</p>
+      <p>Start Time: {{ performance.starttime }}</p>
+      <p>End Time: {{ performance.endtime }}</p>
+      <button mat-icon-button (click)="openDialog()" style="color: #0D47A1;">
+        <mat-icon>how_to_vote</mat-icon> <!-- This assumes you are using a Material Icon named 'how_to_vote' -->
+      </button>
+
+    </li>
+  </ul>
+</div>

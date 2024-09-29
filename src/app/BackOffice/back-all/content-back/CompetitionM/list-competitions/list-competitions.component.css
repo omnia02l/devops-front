@@ -1,0 +1,81 @@
+/* Ajoutez ces styles à votre fichier CSS */
+
+/* Container pour ajouter une compétition */
+.add-competition-container {
+  text-align: center;
+}
+
+.add-competition-container .btn-circle {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #A8043C; /* Utilisation de la couleur principale */
+  color: #FFFFFF;
+  font-size: 48px;
+  line-height: 100px;
+  text-decoration: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.add-competition-container .btn-text h3 {
+  color: #4D0013; /* Utilisation de la couleur d'accent */
+}
+
+/* Container pour la liste des compétitions */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 100%;
+  max-width: 300px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px; /* Marge négative à gauche pour compenser la marge à droite des cartes */
+  margin-right: 20px;
+}
+
+.card-body {
+  background-color: #FFFFFF;
+  border: 2px solid #8B0026; /* Utilisation de la couleur de bordure */
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.card-title {
+  color: #A8043C; /* Utilisation de la couleur principale pour le titre */
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #333; /* Couleur de texte normale */
+}
+
+.card-text strong {
+  color: #660019; /* Utilisation de la couleur d'accent pour les éléments forts */
+}
+
+.btn-primary {
+  background-color: #660019; /* Couleur de fond pour le bouton "View Details" */
+  border-color: #660019; /* Couleur de bordure pour le bouton "View Details" */
+}
+
+.btn-success {
+  background-color: #4D0013; /* Couleur de fond pour le bouton "Update" */
+  border-color: #4D0013; /* Couleur de bordure pour le bouton "Update" */
+}
+
+.btn-danger {
+  background-color: #8B0026; /* Couleur de fond pour le bouton "Delete" */
+  border-color: #8B0026; /* Couleur de bordure pour le bouton "Delete" */
+}
+
+.btn-primary,
+.btn-success,
+.btn-danger {
+  color: #FFFFFF; /* Couleur du texte pour tous les boutons */
+}

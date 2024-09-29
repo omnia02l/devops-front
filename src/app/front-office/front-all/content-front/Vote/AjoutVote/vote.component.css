@@ -1,0 +1,9 @@
+.custom-textarea {
+  border-radius: 10px; /* Bords arrondis */
+  border: 2px solid #FFC107; /* Bordure colorée */
+  background-color: #FFF3CD; /* Couleur de fond légère */
+  padding: 10px; /* Espace intérieur */
+  font-size: 1rem; /* Taille de police */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+

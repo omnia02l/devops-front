@@ -1,0 +1,20 @@
+<p>file-uploader works!</p>
+<lr-config ctx-name="my-uploader" pubkey="746cd19532409c0e9930" multiple="true" removeCopyright="true" sourceList="local , url , camera , dropbox "></lr-config>
+<lr-file-uploader-regular
+  ctx-name="my-uploader"
+  class="parentContainer"
+  css-src="https://cdn.jsdelivr.net/npm/@uploadcare/blocks@0.30.0/web/lr-file-uploader-regular.min.css"
+></lr-file-uploader-regular>
+
+<lr-upload-ctx-provider
+  ctx-name="my-uploader"
+  #ctxProvider
+></lr-upload-ctx-provider>
+
+<div *ngFor="let uploadedFile of uploadedFiles">
+    <img
+      [src]="uploadedFile.cdnUrl + '/-/preview/-/resize/x200/'"
+      *ngIf="uploadedFile.cdnUrl"
+    />
+  </div>
+  

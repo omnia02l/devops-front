@@ -1,0 +1,67 @@
+<div class="countdown">
+  <p>{{ countdownMessage }}</p>
+</div>
+
+<div class="flip-card-container">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <div class="image-container">
+          <img [src]="competition.compimage" alt="Competition Image" class="card-image">
+        </div>
+      </div>
+      <div class="flip-card-back">
+        <!-- Affichage du message de notification -->
+<div *ngIf="notificationMessage" class="notification-message">
+  {{ notificationMessage }}
+</div>
+        <div class="content">
+          <h2>{{ competition.compname }}</h2>
+          <p>{{ competition.cdescreption }}</p>
+          <div class="details">
+            <div class="detail">
+              <strong>Start Date:</strong>
+              <span>{{ competition.startdate | date }}</span>
+            </div>
+            <div class="detail">
+              <strong>End Date:</strong>
+              <span>{{ competition.enddate | date }}</span>
+            </div>
+            <div class="detail">
+              <strong>Registration Deadline:</strong>
+              <span>{{ competition.regisdeadline | date }}</span>
+            </div>
+            <div class="detail">
+              <strong>Number of Dancers:</strong>
+              <span>{{ competition.nbdancers }}</span>
+            </div>
+            <div class="detail">
+              <strong>Fees per Participant:</strong>
+              <span>{{ competition.feesperparticipant }}</span>
+            </div>
+            <div class="detail">
+              <strong>Age Group:</strong>
+              <span>{{ competition.ageg }}</span>
+            </div>
+            <div class="detail">
+              <strong>Competition Status:</strong>
+              <span>{{ competition.compstatus }}</span>
+            </div>
+            <div class="detail">
+              <strong>Style:</strong>
+              <span>{{ competition.style }}</span>
+            </div>
+            <div class="detail">
+              <strong>Dance Category:</strong>
+              <span>{{ competition.dancecateg?.categdname }}</span>
+            </div>
+            <button class="register-button" (click)="registerForCompetition()">Register</button>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+  <div class="app-brand demo">
+
+      <a href="/" class="app-brand-link">
+        <img src="/assets/BackOffice/assets/img/logo.png" alt="Logo" class="app-logo">
+        <span class="app-brand-text">Dance<span style="color: #8B0000;">Escape</span></span>
+      </a>
+    </div>
+
+  <ul class="menu-inner py-1">
+    <li *ngFor="let item of menuItems; let i = index" class="menu-item" [class.selected]="item.expanded">
+      <a (click)="toggleMenu(i)" class="menu-link">
+        <i class="{{item.icon}}"></i>
+        {{ item.label }}
+        <i class="pi" [ngClass]="{'pi-chevron-down': !item.expanded, 'pi-chevron-up': item.expanded}"></i>
+      </a>
+      <ul *ngIf="item.expanded && item.items" class="layout-menu-toggle" >
+        <li *ngFor="let subItem of item.items" class="menu-item">
+          <a [routerLink]="subItem.routerLink" class="menu-link">{{ subItem.label }}</a>
+        </li>
+
+      </ul>
+    </li>
+  </ul>
+  <li class="menu-item">
+    <a class="menu-link" (click)="logout()">
+      <i class="menu-icon tf-icons bx bx-collection"></i>
+      <div data-i18n="Basic">Logout</div>
+
+    </a>
+  </li>
+</aside>
+

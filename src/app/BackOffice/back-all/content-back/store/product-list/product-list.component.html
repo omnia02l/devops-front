@@ -1,0 +1,59 @@
+
+
+<h2>Product List</h2>
+<!-- product-list.component.html -->
+<!-- Notification area -->
+<div *ngIf="showNotificationFlag" class="notification-container">
+  <div class="notification {{ notificationType }}">
+    {{ notificationMessage }}
+  </div>
+</div>
+
+
+<div class="container">
+  <!-- Title search input -->
+  <input type="text" class="form-control mb-3" placeholder="Search by title" [(ngModel)]="searchCriteria.title" (input)="searchProducts()">
+
+  <!-- InStock checkbox -->
+  <div class="form-check form-switch mb-3">
+    <input class="form-check-input" type="checkbox" id="inStock" [(ngModel)]="searchCriteria.inStock" (change)="searchProducts()">
+    <label class="form-check-label" for="inStock">In Stock</label>
+  </div>
+
+  <!-- Price range inputs -->
+  <div class="row mb-3">
+    <div class="col">
+      <input type="number" class="form-control" placeholder="Min Price" [(ngModel)]="searchCriteria.minPrice" (input)="searchProducts()">
+    </div>
+    <div class="col">
+      <input type="number" class="form-control" placeholder="Max Price" [(ngModel)]="searchCriteria.maxPrice" (input)="searchProducts()">
+    </div>
+  </div>
+
+<!-- Existing product list HTML -->
+<div class="row">
+  <!-- Product cards -->
+</div>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let product of filteredProducts">
+    <div class="card mb-3" *ngIf="product['imagestore']">
+      <img [src]="product['imagestore'].imageUrl" class="card-img-top center-img" alt="{{ product.title }}" style="max-height: 250px; max-width: 250px; object-fit: contain;">
+    
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        
+        <p class="card-text">Price: {{ product.price | currency }}</p>
+       
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a [routerLink]="['/admin/products', product.productId]" class="btn btn-sm btn-outline-secondary">View Details</a>
+          </div>
+          <small class="text-muted">Quantity: {{ product.quantity }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

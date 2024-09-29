@@ -1,0 +1,61 @@
+/* Styles pour le conteneur principal */
+.competition-container {
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 20px;
+  border: 1px solid #001F3F; /* Bleu foncé */
+  padding: 15px;
+  border-radius: 10px; /* Augmentation du rayon de la bordure */
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une lÃ©gÃ¨re ombre */
+}
+
+/* Styles pour le titre de la compÃ©tition */
+.competition-container h3 {
+  color: #A8043C; /* Rouge */
+  margin-bottom: 15px; /* Augmentation de l'espace en bas */
+  border-bottom: 2px solid #A8043C; /* Rouge */
+  padding-bottom: 8px; /* Augmentation du padding en bas */
+}
+
+/* Styles pour les dates */
+.competition-container p {
+  color: #8B0026; /* Rouge foncÃ© */
+  margin-bottom: 10px;
+}
+
+/* Styles pour chaque Ã©lÃ©ment de performance */
+.performance-item {
+  margin-top: 20px; /* Augmentation de l'espace en haut */
+  padding: 20px; /* Augmentation du padding */
+  border: 2px solid #001F3F; /* Bleu foncÃ© */
+  border-radius: 10px; /* Augmentation du rayon de la bordure */
+  background-color: #fff; /* Blanc */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* LÃ©gÃ¨re ombre */
+}
+
+/* Styles pour le titre de performance */
+.performance-item h4 {
+  color: #A8043C; /* Rouge */
+  margin-bottom: 15px; /* Augmentation de l'espace en bas */
+}
+
+/* Styles pour les dÃ©tails de performance */
+.performance-item p {
+  color: #8B0026; /* Rouge foncÃ© */
+  margin-bottom: 12px; /* Augmentation de l'espace en bas */
+}
+
+/* Styles pour les boutons avec texte blanc */
+.white-text-button {
+  background-color: #660019; /* Rouge foncé */
+  border: none;
+  color: #fff; /* Blanc */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}

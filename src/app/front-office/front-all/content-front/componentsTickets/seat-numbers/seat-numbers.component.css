@@ -1,0 +1,165 @@
+.theater-container {
+  background-color: #06060600; /* Bleu nuit pour l'arrière-plan du théâtre */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+body, .sidenav-container {
+  /* Appliquez l'image de fond sur le corps de la page pour un effet complet */
+  background-image: url('src/assets/FrontOffice/images/young-graceful-ballet-dancer-isolated-purple-studio-background-neon-light.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Maintient l'image de fond fixe lors du défilement */
+}
+
+/* Vous pouvez également choisir de ne pas inclure le 'body' si vous voulez que l'effet ne s'applique que lorsque le sidenav est ouvert */
+
+.sidenav-container {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden; /* Cache le défilement horizontal si jamais il y en a */
+}
+
+/* Styles existants pour .sidebar, .main-content, etc... */
+
+/* Style pour la barre latérale semi-transparente pour que l'image de fond soit visible en dessous */
+.sidenav {
+  width: 250px;
+  background-color: rgba(199, 176, 238, 0.8); /* Pour la semi-transparence, utilisez rgba */
+  /* Plus d'opacité signifie moins de transparence, ajustez le dernier chiffre (0.8 ici) selon vos besoins */
+}
+
+/* ... */
+
+.theater-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* Overlay noir semi-transparent */
+  z-index: 0;
+}
+
+.screen-direction .screen {
+  background-color:#c7b0eeaa;
+  padding: 5px 20px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.screen-direction .screen-bar {
+  background-color: #c7b0eeaa; 
+  height: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.seat-row-seats .seat {
+  background-color: #9fa8da; /* Bleu clair pour les sièges disponibles */
+  margin: 0 4px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.seat-row-seats .seat .mat-icon {
+  color: white; /* Icône du siège en blanc */
+}
+
+.seat-row-seats .seat .seat-number {
+  position: absolute;
+  bottom: -20px;
+  color: white; /* Numéro du siège en blanc */
+  font-size: 0.7rem;
+}
+
+.seat-row-seats .seat.occupied {
+  background-color: #ef5350; /* Rouge pour les sièges occupés */
+  cursor: not-allowed;
+}
+
+.seat-row-seats .seat.selected {
+  background-color: #4caf50; /* Vert pour les sièges sélectionnés */
+}
+.seat-row-seats .seat.selected:hover {
+  background-color: #9ebf9f; /* Vert pour les sièges sélectionnés */
+}
+.seat-row-seats :hover {
+  background-color: #4caf50; /* Vert pour les sièges sélectionnés */
+}
+.action-buttons .confirm-btn {
+  background-color: #13366b; /* Vert pour le bouton de confirmation */
+  color: white;
+}
+
+.action-buttons .confirm-btn:hover {
+  background-color: #485499; /* Vert plus foncé au survol */
+}
+.page-container {
+  display: flex;
+  min-height: 100vh;
+}
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+  background-color: #c7b0eeaa; /* Dark purple with transparency */
+}
+
+.sidebar-content {
+  color: white;
+  padding: 15px;
+}
+
+.main-content {
+  position: relative;
+}
+
+.toggle-button {
+  color: white;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000; /* Ensure the button is above all other content */
+}
+
+/* Existing styles for .theater-container, .screen-direction, .seat, etc. */
+
+.custom-btn {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4caf50; /* Fond vert pour les boutons */
+  color: white; /* Texte en blanc */
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  border: none; /* Pas de bordure pour les boutons */
+}
+
+/* Styles pour les notifications d'alerte */
+.alert {
+  background-color: #323232ee; /* Fond des alertes semi-transparent */
+  color: white; /* Texte blanc pour les alertes */
+  border-left: 5px solid #4caf50; /* Bordure colorée pour distinguer les alertes */
+  padding: 10px 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+/* Modifier les alertes lorsqu'elles sont fermées */
+.alert-dismissible .close {
+  color: white;
+}

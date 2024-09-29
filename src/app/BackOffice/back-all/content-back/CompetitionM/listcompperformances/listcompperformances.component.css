@@ -1,0 +1,77 @@
+/* Competition Container */
+.competition-container {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+}
+
+/* Competition Card */
+.competition-card {
+  border-radius: 8px;
+  border: 2px solid #A8043C; /* Rouge */
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 2px solid #660019; /* Rouge foncé */
+}
+
+/* Date Badge */
+.date-badge {
+  background-color: #8B0026; /* Rouge foncé */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Performances List */
+.performances-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Performance Item */
+.performance-item {
+  border-bottom: 2px solid #660019; /* Rouge foncé */
+  padding: 15px;
+}
+
+/* Performance Details */
+.performance-details p {
+  color: #33000C; /* Rouge plus foncé */
+  margin: 8px 0;
+}
+
+/* Red Text */
+.red-text {
+  color: #33000C; /* Rouge plus foncé */
+}
+/* Bouton "Add Performance" */
+.btn-primary {
+  background-color: #A8043C; /* Bleu */
+  color: #fff; /* Texte blanc */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #A8043C; /* Bleu foncé au survol */
+}
+/* Competition Name */
+.competition-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #8B0026; /* Rouge foncé */
+  margin-bottom: 10px;
+}

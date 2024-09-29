@@ -1,0 +1,15 @@
+<div *ngIf="discountApplied" class="alert alert-success text-center">
+  Discount applied successfully!
+</div>
+
+<!-- Si une erreur s'est produite lors de l'application de la réduction -->
+<div *ngIf="discountError" class="alert alert-danger text-center">
+  {{ discountError }}
+</div>
+
+<div class="text-center">
+   
+    <input type="text" [(ngModel)]="discountCode" placeholder="Enter discount code" class="form-control mb-3" style="max-width: 300px; margin: auto;">
+    <button class="custom-btn" (click)="applyDiscount()">Apply Discount</button>
+  </div>
+  

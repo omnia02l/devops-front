@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Add New Product</h2>
+  <form (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="product.title" required>
+      <div class="invalid-feedback">Please enter a title.</div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" name="description" [(ngModel)]="product.description" required></textarea>
+      <div class="invalid-feedback">Please enter a description.</div>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" class="form-control" id="price" name="price" [(ngModel)]="product.price" required>
+      <div class="invalid-feedback">Please enter a valid price.</div>
+    </div>
+    <div class="form-group">
+      <label for="size">Size</label>
+      <select class="form-control" id="size" name="size" [(ngModel)]="product.size" required>
+        <option *ngFor="let size of sizeOptions" [value]="size">{{ size }}</option>
+      </select>
+      <div class="invalid-feedback">Please select a size.</div>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input type="number" class="form-control" id="quantity" name="quantity" [(ngModel)]="product.quantity" required>
+      <div class="invalid-feedback">Please enter a valid quantity.</div>
+    </div>
+    <div class="form-group">
+      <label for="categoryId">Category</label>
+      <select class="form-control" id="categoryId" name="categoryId" [(ngModel)]="product['categoryId']" required>
+        <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.name }}</option>
+      </select>
+      <div class="invalid-feedback">Please select a category.</div>
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" class="form-control-file" id="image" name="image" (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif" required>
+      <div class="invalid-feedback">Please select an image.</div>
+    </div>
+    <button type="submit" class="btn btn-primary" style="background-color: #A8043C; border-color: #A8043C;">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,61 @@
+button.p-button {
+    background-color: transparent; /* Clear any default background */
+    border: none; /* Remove borders */
+    color: #0D47A1; /* Deep blue color */
+}
+
+button.p-button:hover {
+    background-color: rgba(13, 71, 161, 0.1); /* Lighter blue on hover */
+}
+
+  .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.card {
+  background-color: #fff; /* Blanc */
+  border: 2px solid #001F3F; /* Bleu foncé */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  color: #A8043C; /* Rouge */
+}
+
+.card-text {
+  color: #8B0026; /* Rouge foncé */
+  font-size: 14px;
+}
+
+.btn {
+  color: #fff;
+  background-color: #660019; /* Rouge foncé */
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: #4D0013; /* Rouge foncé plus sombre */
+}
+
+.btn-primary {
+  background-color: #001F3F; /* Bleu foncé */
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.no-competitions {
+  text-align: center;
+  color: #33000C; /* Rouge plus foncé */
+  margin-top: 20px;
+}

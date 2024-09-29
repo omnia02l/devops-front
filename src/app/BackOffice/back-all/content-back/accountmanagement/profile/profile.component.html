@@ -1,0 +1,111 @@
+<section>
+  <div class="col-12">
+    <div class="card px-6 py-6" *ngIf="principal">
+      <p-toast></p-toast>
+      <h5 style="text-align: center">Profile Details</h5>
+      <br>
+      <div class="p-formgrid grid">
+        <div class="field col">
+          <h5 style="color: #0b5ed7">User name :</h5>
+        </div>
+        <div class="field col">
+          <h5>{{principal.userName}}</h5>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="field col">
+          <h5 style="color: #0b5ed7">First name :</h5>
+        </div>
+        <div class="field col">
+          <h5>{{principal.firsName}}</h5>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="field col">
+          <h5 style="color: #0b5ed7">Last name :</h5>
+        </div>
+        <div class="field col">
+          <h5>{{principal.lastName}}</h5>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="field col">
+          <h5 style="color: #0b5ed7">Email Address :</h5>
+        </div>
+        <div class="field col">
+          <h5>{{principal.email}}</h5>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="field col">
+          <h5 style="color: #0b5ed7">Phone number :</h5>
+        </div>
+        <div class="field col">
+          <h5>{{principal.phoneNumber}}</h5>
+        </div>
+      </div>
+      <div class="p-formgrid grid">
+        <div class="field col">
+          <h5 style="color: #0b5ed7">As :</h5>
+        </div>
+        <div class="field col">
+          <h5>{{principal.role}}</h5>
+        </div>
+      </div>
+      <div style="text-align: justify">
+        <button pButton pRipple label="Edit Profile" (click)="editProfileDialog = true; editProfileRequest = {}"
+                style="margin-top: 30px;width: 200px"></button>
+        <button pButton pRipple label="Update Password" (click)="updatePasswordDialog = true; updatePasswordRequest = {}"
+                style="margin-top: 30px;width: 200px; margin-left: 50px"></button>
+      </div>
+
+      <p-dialog [(visible)]="editProfileDialog" [style]="{width: '450px'}" [closable]="false" header="Profile Details" [modal]="true" class="p-fluid">
+        <ng-template pTemplate="content">
+          <div class="field">
+            <label>First name</label>
+            <input type="text" pInputText [(ngModel)]="editProfileRequest.firstName" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !editProfileRequest.firstName}"/>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !editProfileRequest.firstName">First name is required.</small>
+          </div>
+          <div class="field">
+            <label>Last name</label>
+            <input type="text" pInputText [(ngModel)]="editProfileRequest.lastName" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !editProfileRequest.lastName}"/>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !editProfileRequest.lastName">Last name is required.</small>
+          </div>
+          <div class="field">
+            <label>Phone number</label>
+            <p-inputMask mask="(+216) 99-999-999" [(ngModel)]="editProfileRequest.phoneNumber" placeholder="(+216) 99-999-9999"></p-inputMask>
+          </div>
+          <div class="field">
+            <label>Email address</label>
+            <input type="text" pInputText [(ngModel)]="editProfileRequest.emailAddress" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !editProfileRequest.emailAddress}"/>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !editProfileRequest.emailAddress">Email Address is required.</small>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="editProfileDialog = false; editProfileRequest = {};submitted = false"></button>
+          <button pButton pRipple label="Save" icon="pi pi-check"  class="p-button-text" (click)="editProfile()"></button>
+        </ng-template>
+      </p-dialog>
+
+      <p-dialog [(visible)]="updatePasswordDialog" [style]="{width: '450px'}" [closable]="false" header="Password Details" [modal]="true" class="p-fluid">
+        <ng-template pTemplate="content">
+          <div class="field">
+            <label>New password</label>
+            <input type="password" pInputText [(ngModel)]="updatePasswordRequest.newPassword" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !updatePasswordRequest.newPassword}"/>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !updatePasswordRequest.newPassword">New password is required.</small>
+          </div>
+          <div class="field">
+            <label>Confirmation</label>
+            <input type="password" pInputText [(ngModel)]="updatePasswordRequest.confirmation" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !updatePasswordRequest.confirmation}"/>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !updatePasswordRequest.confirmation">Confirmation is required.</small>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="updatePasswordDialog = false; submitted = false"></button>
+          <button pButton pRipple label="Save" icon="pi pi-check"  class="p-button-text" (click)="updatePassword()"></button>
+        </ng-template>
+      </p-dialog>
+
+    </div>
+  </div>
+</section>

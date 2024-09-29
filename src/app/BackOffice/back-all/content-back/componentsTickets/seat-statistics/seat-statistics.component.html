@@ -1,0 +1,20 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content class="main-content">
+    <div class="theater-container">
+      <div class="screen-direction">
+        <div class="screen">Écran</div>
+        <div class="screen-bar"></div>
+      </div>
+
+      <div *ngFor="let row of seatNumbersByRow | keyvalue" class="seat-row">
+        <div class="seat-row-label">{{ row.key }}</div>
+        <div class="seat-row-seats">
+          <div *ngFor="let seat of row.value" class="seat" [ngClass]="getSeatStatusClass(seat.idPlace)">
+            <mat-icon>event_seat</mat-icon>
+            <span class="seat-number">{{ seat.seatNumber }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

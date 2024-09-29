@@ -1,0 +1,59 @@
+.container {
+    /* Add container styles as needed */
+  }
+  
+  .recommended-products-container {
+    overflow-x: auto;
+    white-space: nowrap; /* Ensure products are in one line */
+  }
+  
+  .product-card {
+    display: inline-block; /* Display products in one line */
+    width: 300px; /* Adjust width of product card */
+    margin-right: 10px; /* Adjust spacing between cards */
+    transition: transform 1.0s ease; /* Animation transition */
+    
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .product-details {
+    padding: 10px;
+  }
+  
+  /* Angular animations */
+  @keyframes swipe {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes hover {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.05);
+    }
+  }
+  
+  /* Animation definitions */
+  .recommended-products-animation {
+    animation: swipe 10s infinite linear;
+  }
+  
+  .product-card-animation {
+    animation: hover 0.5s ease-in-out;
+  }
+  

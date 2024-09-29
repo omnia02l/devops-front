@@ -1,0 +1,103 @@
+.mat-elevation-z8 {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: auto;
+    width: 95%; /* Adjust based on your layout */
+    overflow-x: auto; /* Responsive table scroll */
+}
+
+table {
+    width: 100%;
+    border-collapse: separate; /* Ensures spacing between cells */
+    border-spacing: 0 10px; /* Adds vertical spacing between rows */
+}
+
+th.mat-header-cell, td.mat-cell {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+    font-size: 16px;
+}
+
+td.mat-cell {
+    background-color: #f9f9f9; /* Adds a subtle background to cells */
+    border-radius: 4px; /* Rounds the corners of cells for a softer look */
+}
+
+.mat-icon-button {
+    color: #6200ea; /* Deep purple for icons to indicate interactivity */
+    margin-right: 5px; /* Ensures space around the icon */
+}
+
+.mat-icon-button:hover {
+    background-color: rgba(98, 0, 234, 0.1); /* Light hover effect for buttons */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds depth when hovering */
+}
+
+.title {
+    color: #660019; /* Consistent dark red for titles */
+    text-align: center;
+    margin-bottom: 20px;
+}
+.content {
+    margin: auto;
+    max-width: 95%;
+    padding: 20px;
+  }
+  
+  .title {
+    color: #660019; /* Dark red for titles */
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 24px; /* Larger font size for title */
+  }
+  
+  .description {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    opacity: 0.8; /* Slightly muted text for the description */
+  }
+
+.mat-icon {
+  cursor: pointer; /* Makes the icon clickable */
+  color: #0401a9; /* Icon color */
+}
+mat-progress-bar {
+    height: 10px; /* Makes the progress bar thinner */
+    background-color: #e0e0e0; /* Light grey background for the unfilled part */
+  }
+  
+  .mat-progress-bar-buffer {
+    background-color: #3F51B5; /* Deep blue for the filled part */
+  }
+  .offer-alert {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+  }
+  
+  .low {
+    background-color: #f44336; /* Red for low */
+  }
+  
+  .moderate {
+    background-color: #0059ff; /* Orange for moderate */
+  }
+  
+  .good {
+    background-color: #4caf50; /* Green for good */
+  }
+  
+  .check {
+    background-color: #2196f3; /* Blue for check */
+  }
+  

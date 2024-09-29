@@ -1,0 +1,14 @@
+<!-- team-dancers.component.html -->
+<div *ngIf="teamDancers" class="team-container">
+  <h2 class="team-title">Teams with Dancers</h2>
+
+  <div *ngFor="let team of teamDancers | keyvalue" class="team-card">
+    <div class="team-header">
+      <h3 class="team-name">{{ team.key }}</h3>
+      <span class="dancers-count">{{ team.value.length }} dancer(s)</span>
+    </div>
+    <ul class="dancers-list">
+      <li *ngFor="let dancer of team.value" class="dancer">{{ dancer }}</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,137 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="titre-container">
+        <h1 class="titre m-0">Training Calendar</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mx-3">
+<div class="row">
+  <!-- Carte pour la combobox -->
+  <div class="col-md-4 px-2">
+    <div class="card mt-3 mb-3">
+      <p-toast></p-toast>
+      <div class="card card-custom">
+        <div class="card-body">
+            <h1 class="card-title custom-title-color">Training Categories</h1>
+            <p-dropdown [options]="categories" [(ngModel)]="getWithCategory" placeholder="Select category" class="custom-placeholder" [style]="{'color': '#8B0026'}"></p-dropdown>
+            <br>
+            <button pButton pRipple type="button" label="Search" class="p-button-rounded mt-2 custom-search-button" (click)="getListWithCategory()"  
+            
+            ></button>
+        </div>
+    </div>
+    
+    
+    
+    </div>
+  </div>
+
+
+<br>
+<br>
+<br>
+
+  <!-- Carte pour le calendrier -->
+  <div class="col-md-8 px-2">
+    <div class="card mt-3 mb-3">
+      <p-toast></p-toast>
+      <div class="card-body custom-div-color">
+        
+        <p-toolbar styleClass="mb-2 ">
+          <ng-template pTemplate="left">
+            <div class="my-2 ">
+              <h1 class="card-title custom-title-color">Training Calendar</h1>
+          </div>
+          
+          </ng-template>
+        </p-toolbar>
+        
+        <full-calendar [options]="options" style="width: 400px; height: 400px;"></full-calendar>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <p-dialog header="Training Details"  [(visible)]="displayTrainingInformationDialog" [modal]="true" [style]="{width: '550px'}" [baseZIndex]="10000"
+              [draggable]="false" [resizable]="false" [closable]="false">
+      <ng-template pTemplate="content">
+        <div class="card" style="background-color: #E8C4D0; padding: 10px;margin-bottom: 10px;">
+          <h3 class="card-title" style="color: #8B0026;">Status :</h3>
+          <span *ngIf="participationStatus===true" style="color: #007bff; font-size: large">You are registered for this training!!</span>
+          <span *ngIf="participationStatus===false" style="color: #d8363a; font-size: large">You have not yet registered for this training!!</span>
+        </div>
+        <div class="card" style="background-color: #E8C4D0; padding: 10px;margin-bottom: 10px;">
+          <h3 class="card-title" style="color: #8B0026;">Training name :</h3>
+          <p class="card-text m-0">{{trainingResponse.trainingName}}</p>
+      </div>
+      
+      <div class="card" style="background-color: #E8C4D0; padding: 10px; margin-bottom: 10px;">
+        <h3 class="card-title" style="color: #8B0026;"> Description :</h3>
+        <p class="card-text m-0">{{trainingResponse.trainingDescription}}</p>
+    </div>
+    
+    <div class="card" style="background-color: #E8C4D0; padding: 10px; margin-bottom: 10px;">
+        <h3 class="card-title" style="color: #8B0026;"> Available :</h3>
+        <p class="card-text m-0">{{trainingResponse.capacity + '    Place(s)'}}</p>
+    </div>
+    
+    <div class="card" style="background-color: #E8C4D0; padding: 10px; margin-bottom: 10px;">
+        <h3 class="card-title" style="color: #8B0026;"> Start :</h3>
+        <p class="card-text m-0">{{trainingResponse.start | date : 'medium'}}</p>
+    </div>
+    
+    <div class="card" style="background-color: #E8C4D0; padding: 10px; margin-bottom: 10px;">
+        <h3 class="card-title" style="color: #8B0026;">End :</h3>
+        <p class="card-text m-0">{{trainingResponse.end | date : 'medium'}}</p>
+    </div>
+    
+    <div class="card" style="background-color: #E8C4D0; padding: 10px; margin-bottom: 10px;">
+        <h3 class="card-title" style="color: #8B0026;">Coach :</h3>
+        <p class="card-text m-0">{{trainingResponse.coachName}}</p>
+    </div>
+    
+    <div class="card" style="background-color: #E8C4D0; padding: 10px; margin-bottom: 10px;">
+        <h3 class="card-title" style="color: #8B0026;"> Dance Hall :</h3>
+        <p class="card-text m-0">{{trainingResponse.danceHallName}}</p>
+    </div>
+    
+    <div class="card" style="background-color: #E8C4D0; padding: 10px; margin-bottom: 10px;">
+        <h3 class="card-title" style="color: #8B0026;"> Dance hall address :</h3>
+        <p class="card-text m-0">{{trainingResponse.danceHallAddress}}</p>
+    </div>
+    
+    <div class="card" style="background-color: #E8C4D0; padding: 10px; margin-bottom: 10px;">
+        <h3 class="card-title" style="color: #8B0026;">- Participants :</h3>
+        <p-table [value]="trainingResponse.trainingParticipantList!" [rowHover]="true" [rows]="5" [paginator]="true" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+          <ng-template pTemplate="header">
+            <tr class="table-primary">
+                <th scope="col" class="font-weight-bold">Name</th>
+                <th scope="col" class="font-weight-bold">Phone number</th>
+            </tr>
+        </ng-template>
+        
+        <ng-template pTemplate="body" let-participant>
+            <tr class="table-light">
+                <td>{{ participant.participantName }}</td>
+                <td>{{ participant.phoneNumber }}</td>
+            </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <button pButton pRipple label="Join" icon="pi pi-check" [disabled]="participationStatus===true" (click)="join()"style="background-color: #A8043C ; color: #001F3F;"></button>
+        <button pButton pRipple label="Cancel" icon="pi pi-trash"  [disabled]="participationStatus===false" (click)="cancel()"style="background-color: #A8043C ; color: #001F3F;"></button>
+        <button pButton pRipple label="Close" icon="pi pi-times" (click)="displayTrainingInformationDialog=false"style="background-color: #A8043C ; color: #001F3F;"></button>
+      </ng-template>
+    </p-dialog>
+</div>
+</div>
+

@@ -1,0 +1,33 @@
+<div class="card">
+  <button pButton label="Ajouter une Carte de Ticket" icon="pi pi-plus" class=" add-btn" (click)="addNewTicketCard()"></button>
+  <p-table [value]="ticketCards" [paginator]="true" [rows]="5" dataKey="idCardT">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID Carte</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ticketCard let-i="rowIndex">
+      <tr *ngIf="editingIndex !== i; else editMode">
+        <td>{{ ticketCard.idCardT }}</td>
+        <td>{{ ticketCard.total }}</td>
+        <td>
+          <button pButton icon="pi pi-pencil" class=" mr-2 edit-btn" (click)="editTicketCard(i)"></button>
+          <button pButton icon="pi pi-trash" class="mr-2 delete-btn" (click)="deleteTicketCard(ticketCard.idCardT)"></button>
+        </td>
+      </tr>
+      <ng-template #editMode>
+        <tr>
+          <td>{{ ticketCard.idCardT }}</td>
+          <td><input pInputText type="number" [(ngModel)]="ticketCard.total" name="Total-{{i}}" class="p-inputtext form-control"></td>
+          <td>
+           
+            <button pButton icon="pi pi-check" class=" mr-2 submit-btn" (click)="onSubmit(ticketCard, i)"></button>
+            <button pButton icon="pi pi-times" class=" cancel-btn" (click)="cancelEdit()"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </ng-template>
+  </p-table>
+</div>

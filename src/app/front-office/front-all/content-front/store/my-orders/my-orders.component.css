@@ -1,0 +1,69 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+.card-stepper {
+    z-index: 0
+    }
+    
+    .progressbar {
+        color: #455A64;
+    }
+    
+    .progressbar li {
+        list-style-type: none;
+        font-size: 13px;
+        width: 33.33%;
+        float: left;
+        position: relative;
+    }
+    
+    .progressbar li:before {
+        line-height: 37px;
+        display: block;
+        font-size: 12px;
+        background: #c5cae9;
+        border-radius: 50%;
+    }
+    
+    .progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 10px;
+        background: #c5cae9;
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 15px;
+        z-index: -1;
+    }
+    
+    .progressbar li:nth-child(1):after {
+        left: 1%;
+        width: 100%
+    }
+    
+    .progressbar li:nth-child(2):after {
+        left: 1%;
+        width: 100%;
+    }
+    
+    .progressbar li:nth-child(3):after {
+        left: 1%;
+        width: 100%;
+        background: #c5cae9 !important;
+    }
+    
+    .progressbar li:nth-child(4) {
+        left: 0;
+        width: 37px;
+    }
+    
+    .progressbar li:nth-child(4):after {
+        left: 0;
+        width: 0;
+    }
+    
+    .progressbar li.active:before,
+    .progressbar li.active:after {
+        background: #6520ff;
+    }
+    

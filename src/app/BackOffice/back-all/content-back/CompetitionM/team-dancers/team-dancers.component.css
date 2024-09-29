@@ -1,0 +1,42 @@
+.team-container {
+  margin: 20px;
+}
+
+.team-title {
+  color: #001f3f;
+}
+
+.team-card {
+  background-color: #a8043c;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.team-name {
+  color: #ffffff; /* texte blanc */
+}
+
+.dancers-count {
+  color: #8b0026; /* couleur des danseurs */
+}
+
+.dancers-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dancer {
+  color: #ffffff; /* texte blanc */
+  background-color: #de9dad; /* couleur de fond pour les danseurs */
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}

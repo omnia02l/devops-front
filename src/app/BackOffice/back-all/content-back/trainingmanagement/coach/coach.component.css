@@ -1,0 +1,9 @@
+.p-button-circle {
+    width: 40px; /* Ajustez la taille du bouton selon vos préférences */
+    height: 40px; /* Ajustez la taille du bouton selon vos préférences */
+    border-radius: 50%; /* Définit la forme du bouton comme un cercle */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

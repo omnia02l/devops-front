@@ -1,0 +1,29 @@
+<div id="downloadableContent" *ngIf="ticketCardDetails; else loadingOrError">
+  <div *ngFor="let ticket of ticketCardDetails.tickets; let i = index" class="ticket-section">
+    <div #ticketElement class="pdf-container" style="background-color: #E0BBE4; padding: 20px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <div style="border: 1px solid #957DAD; padding: 15px; border-radius: 8px;">
+        <div style="text-align: center; margin-bottom: 15px;">
+          <!-- Remove the 'places?.venuePlan?.venue?' from competition binding -->
+          <h2 style="color: #5D3F6A;">competition </h2>
+          <h3 style="color: #5D3F6A;">{{ ticket.refTicket }}</h3>
+          <p style="color: #5D3F6A;">Expiration Date: {{ ticket.expireDate }}</p>
+          <p style="color: #5D3F6A;">Row: {{ ticket.rowLabel }}</p>
+          <p style="color: #5D3F6A;">Seat: {{ ticket.seatNumber }}</p>
+        </div>
+        <div style="background-color: #FFFFFF; padding: 15px; border-radius: 8px; position: relative;">
+          <img [src]="ticket.qrCodeBase64" alt="QR Code for the ticket" style="width: 200px; height: 200px; display: block; margin: 0 auto;">
+        </div>
+        <div style="text-align: center; margin-top: 15px;">
+          <button mat-raised-button color="primary" (click)="downloadAsPDF(i)" style="font-size: 1em; color: white; background-color: #5D3F6A; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Download as PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingOrError>
+  <div class="loading-container" style="text-align: center; padding: 50px;">
+    <mat-spinner></mat-spinner>
+    <p>Loading ticket card details...</p>
+  </div>
+</ng-template>

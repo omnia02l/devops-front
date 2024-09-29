@@ -1,0 +1,66 @@
+<div class="container">
+<div class="col-xxl">
+  <div class="card mb-4" style="border-color: #8B0026;">
+    <div class="card-header d-flex align-items-center justify-content-between" style="background-color: #8B0026;">
+      <h5 class="mb-0" style="color: #FFFFFF;">Dance Category & style </h5>
+      <small class="text-muted float-end" style="color: #FFFFFF;"></small>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="danceCategoryForm" (ngSubmit)="submitForm()">
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="categdname" style="color: #8B0026;">Category name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="categdname" formControlName="categdname" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="categdesc" style="color: #8B0026;">Description</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="categdesc" formControlName="categdesc" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-10 offset-sm-2">
+            <button type="button" class="btn btn-primary" style="background-color: #001F3F; border-color: #001F3F;" (click)="addStyleField()">
+              <i class="pi pi-fw pi-plus"></i> style
+            </button>
+
+          </div>
+        </div>
+        <div class="row mb-3" formArrayName="dancestyles" *ngFor="let style of dancestyles.controls; let i = index">
+          <div class="col-sm-10 offset-sm-2">
+            <div [formGroupName]="i">
+              <h4>Dance Style {{ i + 1 }}</h4>
+              <div class="mb-3">
+                <label for="styledname" style="color: #8B0026;">Style name</label>
+                <input type="text" class="form-control" id="styledname" formControlName="styledname" />
+              </div>
+              <div class="mb-3">
+                <label for="styledesc" style="color: #8B0026;">Description</label>
+                <input type="text" class="form-control" id="styledesc" formControlName="styledesc" />
+              </div>
+              <button type="button" class="btn btn-danger" style="background-color: #c66a89; border-color: #8B0026;" (click)="removeStyleField(i)">
+                <i class="pi pi-fw pi-minus"></i> style
+              </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" style="background-color: #8B0026; border-color: #8B0026;">Add category</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Affichage des messages de succès et d'erreur -->
+<div *ngIf="successMessage" class="alert alert-success" role="alert" style="background-color: #4D0013; color: #FFFFFF;">
+  {{ successMessage }}
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert" style="background-color: #A8043C; color: #FFFFFF;">
+  {{ errorMessage }}
+</div>
+

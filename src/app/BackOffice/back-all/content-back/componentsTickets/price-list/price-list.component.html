@@ -1,0 +1,55 @@
+<div class="col-12">
+  <div class="card px-6 py-6">
+    <div class="container">
+      <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+          <div class="my-2">
+            <button pButton pRipple label="Add" icon="pi pi-plus" class=" mr-2 add-btn" (click)="addNewPrice()"></button>
+          </div>
+        </ng-template>
+      </p-toolbar>
+      
+      <p-table [value]="prices" [paginator]="true" [rows]="5" [resizableColumns]="true" columnResizeMode="fit">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Type of Ticket</th>
+            <th>Groupe Age</th>
+            <th>Price</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-price let-i="rowIndex">
+          <tr *ngIf="editingIndex !== i; else editMode">
+            <td>{{ price.typeTicket }}</td>
+            <td>{{ price.trancheAge }}</td>
+            <td>{{ price.price }}</td>
+            <td>
+              <button pButton icon="pi pi-pencil" class=" mr-2 edit-btn" (click)="editPrice(i)"></button>
+              <button pButton icon="pi pi-trash" class=" delete-btn" (click)="deletePrice(price.idPrice)"></button>
+            </td>
+          </tr>
+          <ng-template #editMode>
+            <tr>
+              <td>
+                <select [(ngModel)]="price.typeTicket" name="typeTicket-{{i}}" class="form-select">
+                  <option *ngFor="let type of TypeTicketEnum" [value]="type">{{type}}</option>
+                </select>
+              </td>
+              <td>
+                <select [(ngModel)]="price.trancheAge" name="trancheAge-{{i}}" class="form-select">
+                  <option *ngFor="let age of TrancheAgeEnum" [value]="age">{{age}}</option>
+                </select>
+              </td>
+              <td>
+                <input pInputText type="number" [(ngModel)]="price.price" name="price-{{i}}" class="form-input">
+              </td>
+              <td>
+                <button pButton icon="pi pi-check" class=" mr-2 submit-btn" (click)="onSubmit(price, i)"></button>
+                <button pButton icon="pi pi-times" class=" cancel-btn" (click)="cancelEdit()"></button>
+              </td>
+            </tr>
+          </ng-template>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

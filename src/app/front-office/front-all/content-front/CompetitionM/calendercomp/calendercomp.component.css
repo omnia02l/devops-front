@@ -1,0 +1,18 @@
+/* Conteneur du calendrier */
+.calendar-container {
+  background-size: cover; /* Redimensionne l'image pour couvrir tout le conteneur */
+  background-position: center; /* Centre l'image dans le conteneur */
+  padding: 30px; /* Espacement intérieur */
+  border-radius: 20px; /* Rayon de bordure */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Ombre portée */
+  width: 80%; /* Largeur du conteneur */
+  margin: 0 auto; /* Centrage horizontal */
+  margin-top: 20px; /* Marge supérieure */
+  overflow: hidden; /* Masquer le débordement */
+
+  /* Bordure */
+  border-top: 50px solid #A8043C; /* Bordure supérieure de couleur #A8043C */
+  border-left: 5px solid white; /* Bordure gauche de couleur blanche */
+  border-right: 5px solid white; /* Bordure droite de couleur blanche */
+  border-bottom: 5px solid white; /* Bordure inférieure de couleur blanche */
+}

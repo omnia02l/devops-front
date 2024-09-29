@@ -1,0 +1,114 @@
+/* Styles pour le container */
+.container {
+  margin-bottom: 20px;
+}
+
+.row.mb-3 {
+  display: flex;
+  justify-content: center;
+}
+
+/* Styles pour le bouton d'ajout de catégorie de danse */
+.btn-circle {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-right: 10px;
+  background-color: #d890a3; /* Nouvelle couleur de fond */
+  border: none;
+  color: #FFFFFF; /* Couleur du texte */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.plus-symbol {
+  margin-right: 5px;
+}
+
+.btn-text {
+  font-size: 18px;
+  line-height: 70px;
+  color: #A8043C; /* Couleur du texte */
+}
+
+/* Styles pour la carte des catégories de danse */
+.dance-category-card {
+  background-color: #F9F9F9; /* Couleur de fond */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #A8043C; /* Couleur de fond */
+  color: #FFFFFF; /* Couleur du texte */
+  border-radius: 10px 10px 0 0;
+  padding: 10px 20px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.category-header {
+  background-color: #d890a3; /* Nouvelle couleur de fond */
+  color: #FFFFFF; /* Couleur du texte */
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.style-item {
+  margin-bottom: 10px;
+}
+
+.style-item .d-flex {
+  justify-content: space-between;
+}
+
+.style-item .d-flex .btn {
+  margin-left: 10px;
+}
+
+/* Styles pour les boutons */
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-info,
+.btn-light,
+.btn-dark {
+  color: #FFFFFF; /* Couleur du texte */
+}
+
+.btn-primary,
+.btn-primary:hover {
+  background-color: #660019; /* Couleur de fond */
+  border-color: #660019; /* Couleur de bordure */
+}
+
+.btn-success,
+.btn-success:hover {
+  background-color: #A8043C; /* Couleur de fond */
+  border-color: #A8043C; /* Couleur de bordure */
+}
+
+.btn-danger,
+.btn-danger:hover {
+  background-color: #8B0026; /* Couleur de fond */
+  border-color: #8B0026; /* Couleur de bordure */
+}
+
+.btn-warning,
+.btn-warning:hover {
+  background-color: #001F3F; /* Couleur de fond */
+  border-color: #001F3F; /* Couleur de bordure */
+}
+.custom-text-color {
+  color: #A8043C;
+}

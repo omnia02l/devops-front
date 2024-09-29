@@ -1,0 +1,90 @@
+<div class="container" style="display: flex; justify-content: center; align-items: center;">
+  <div class="card mb-4" style="border-color: #8B0026; width: 900px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+    <div class="card-header d-flex align-items-center justify-content-between" style="background-color: #8B0026; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+      <h5 class="mb-0" style="color: #FFFFFF;">Town Form</h5>
+      <small class="text-muted float-end" style="color: #FFFFFF;"></small>
+    </div>
+    <div class="card-body" style="padding: 15px;">
+      <form [formGroup]="townForm" (ngSubmit)="submitForm()">
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="townname" style="color: #8B0026;">Town name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="townname" formControlName="townname" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="country" style="color: #8B0026;">Country</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="country" formControlName="country" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="population" style="color: #8B0026;">Population</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="population" formControlName="population" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="landmarks" style="color: #8B0026;">Landmarks</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="landmarks" formControlName="landmarks" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-10 offset-sm-2">
+            <button type="button" class="btn btn-primary" style="background-color: #001F3F; border-color: #001F3F;" (click)="addVenueField()">Add venue</button>
+          </div>
+        </div>
+        <div class="row mb-3" formArrayName="venues" *ngFor="let venue of venues.controls; let i = index">
+          <div class="col-sm-10 offset-sm-2">
+            <div [formGroupName]="i">
+              <h4>Venue {{ i + 1 }}</h4>
+              <div class="mb-3">
+                <label for="vname" style="color: #8B0026;">Venue name</label>
+                <input type="text" class="form-control" id="vname" formControlName="vname" />
+              </div>
+              <div class="mb-3">
+                <label for="vaddress" style="color: #8B0026;">Address</label>
+                <input type="text" class="form-control" id="vaddress" formControlName="vaddress" />
+              </div>
+              <div class="mb-3">
+                <label for="capacity" style="color: #8B0026;">Capacity</label>
+                <input type="number" class="form-control" id="capacity" formControlName="capacity" />
+              </div>
+              <div class="mb-3">
+                <label for="contact_person" style="color: #8B0026;">Contact Person</label>
+                <input type="text" class="form-control" id="contact_person" formControlName="contact_person" />
+              </div>
+              <div class="mb-3">
+                <label for="vemail" style="color: #8B0026;">Email</label>
+                <input type="email" class="form-control" id="vemail" formControlName="vemail" />
+              </div>
+              <div class="mb-3">
+                <label for="phone" style="color: #8B0026;">Phone</label>
+                <input type="tel" class="form-control" id="phone" formControlName="phone" />
+              </div>
+              <div class="mb-3">
+                <label for="facilities" style="color: #8B0026;">Facilities</label>
+                <input type="text" class="form-control" id="facilities" formControlName="facilities" />
+              </div>
+              <button type="button" class="btn btn-danger" style="background-color: #c66a89; border-color: #8B0026;" (click)="removeVenueField(i)">Remove venue</button>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" style="background-color: #8B0026; border-color: #8B0026;">Add town</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Affichage des messages de succès et d'erreur -->
+<div *ngIf="successMessage" class="alert alert-success" role="alert" style="background-color: #4D0013; color: #FFFFFF;">
+  {{ successMessage }}
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert" style="background-color: #A8043C; color: #FFFFFF;">
+  {{ errorMessage }}
+</div>

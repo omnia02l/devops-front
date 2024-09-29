@@ -1,0 +1,53 @@
+<div>
+ 
+  
+
+<div>
+  <h2>Number of Ordres Placed</h2>
+ 
+  <p-chart type="line" [data]="data" [options]="options"></p-chart>
+
+</div>
+<!-- Update your component template with the following HTML code -->
+<div class="order-section">
+  <p class="section-title">Get orders Between Dates</p>
+  <div class="input-group">
+    <input type="date" [(ngModel)]="startDate" class="date-input">
+    <input type="date" [(ngModel)]="endDate" class="date-input">
+    <button (click)="getOrdersBetweenDates()" class="get-orders-btn" style="background-color: #A8043C; border-color: #A8043C;">Get Orders</button>
+  </div>
+
+  <div *ngIf="orders" class="orders-info">
+    <p class="total-orders">Total Orders: {{ orders.length }}</p>
+    <p class="total-amount">Total Amount: {{ totalAmount }}</p>
+  </div>
+</div>
+<!-- Update your component template with the following HTML code -->
+<div class="category-section">
+  <h2 class="top-products-title">Top 5 Selling Products for Category: {{ selectedCategoryName }}</h2>
+
+  <select [(ngModel)]="selectedCategoryId" (change)="onCategoryChange()" class="category-select">
+    <option value="" disabled>Select a Category</option>
+    <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.name }}</option>
+  </select>
+  
+  <div *ngIf="topProducts.length > 0" class="top-products">
+    <div class="product-list">
+      <div *ngFor="let product of topProducts" class="product-card" [@fadeInUp]>
+        <div class="product-details">
+          <h3 class="product-title">{{ product.title }}</h3>
+          <img [src]="product['imagestore'].imageUrl" class="product-image" alt="{{ product.title }}">
+          <p class="product-price">Price: {{ product.price | currency:'USD':'symbol':'1.2-2' }}</p>
+          <p class="product-quantity">Total Sales Quantity: {{ product.totalSalesQuantity }}</p>
+          <p class="product-revenue">Total Revenue: {{ product.totalRevenue | currency:'USD':'symbol':'1.2-2' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="topProducts.length === 0 && selectedCategoryId" class="no-products">
+    <p>No products found for this category.</p>
+  </div>
+  <div *ngIf="!selectedCategoryId" class="no-category">
+    <p>Please select a category to view top selling products.</p>
+  </div>
+</div>

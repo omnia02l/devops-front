@@ -1,0 +1,78 @@
+.add-btn, .submit-btn {
+    background-color: #A8043C;
+    border-color: #A8043C;
+  }
+  
+  .add-btn:hover, .submit-btn:hover {
+    background-color: #8B0026;
+    border-color: #8B0026;
+  }
+  
+  .edit-btn {
+    background-color: #660019;
+    border-color: #660019;
+  }
+  
+  .edit-btn:hover {
+    background-color: #4D0013;
+    border-color: #4D0013;
+  }
+  
+  .delete-btn, .cancel-btn {
+    background-color: #33000C;
+    border-color: #33000C;
+  }
+  
+  .delete-btn:hover, .cancel-btn:hover {
+    background-color: #001F3F;
+    border-color: #001F3F;
+  }
+  
+  .form-select, .form-input {
+    border-color: #33000C;
+  }
+  
+  .form-select:focus, .form-input:focus {
+    border-color: #001F3F;
+  }
+  
+  .save-btn {
+    background-color: #001F3F; /* Navy blue */
+    border-color: #33000C;
+  }
+  
+  .cancel-btn {
+    background-color: #ffc107; /* Yellow for warning actions */
+    border-color: #ffc107;
+  }
+  
+  .btn:hover, .p-button:hover {
+    opacity: 0.85;
+  }
+  
+  .form-control, p-inputtext {
+    width: auto; /* Adjusts width based on parent container's size */
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0.375rem 0.75rem; /* Standard padding */
+    border-radius: 0.25rem; /* Rounded borders */
+    border: 1px solid #ced4da; /* Standard border */
+  }
+  
+  .p-button-rounded {
+    border-radius: 50%;
+  }
+  
+  .p-button {
+    margin-right: 0.5rem;
+  }
+  
+  /* Hover effects for better user feedback */
+  .p-button:hover {
+    filter: brightness(90%);
+  }
+  
+  .p-button:active {
+    filter: brightness(80%);
+  }
+  

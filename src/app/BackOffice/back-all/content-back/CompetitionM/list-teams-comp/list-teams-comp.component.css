@@ -1,0 +1,53 @@
+/* Section Title */
+.section-title {
+  font-size: 2rem;
+  color: #de98af;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Competition Card */
+.competition-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #F8F8F8;
+  transition: all 0.3s ease;
+}
+
+.competition-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Competition Header */
+.competition-header {
+  padding: 15px;
+  background-color: #A8043C;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.competition-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+}
+
+.teams-count {
+  font-size: 1rem;
+  color: #fff;
+}
+
+/* Teams List */
+.teams-list {
+  padding: 0;
+  margin: 0;
+}
+
+.team {
+  list-style-type: none;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  color: #001F3F;
+}

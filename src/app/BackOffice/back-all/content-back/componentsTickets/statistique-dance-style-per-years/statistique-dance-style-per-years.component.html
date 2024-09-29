@@ -1,0 +1,21 @@
+<div class="stats-container">
+  <h2 class="title">Select Dance Style</h2>
+  <p>Select a dance style to view the ticket statistics. This data can help you make informed decisions regarding the popularity of dance styles over the years.</p>
+  <select class="dropdown form-select" [(ngModel)]="selectedStyleName" (change)="onStyleChange(selectedStyleName)">
+    <option value="" disabled selected>Select style</option>
+    <option *ngFor="let style of distinctStyles" [ngValue]="style">{{ style }}</option>
+  </select>
+
+
+
+  <div class="chart-container">
+    <h3 class="chart-title">Ticket Sales Statistics</h3>
+    <canvas baseChart
+            [options]="barChartOptions"
+            [datasets]="barChartData.datasets"
+            [labels]="barChartData.labels"
+            [legend]="barChartLegend"
+            type="bar">
+    </canvas>
+  </div>
+</div>

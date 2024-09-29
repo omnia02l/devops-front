@@ -1,0 +1,30 @@
+<button class="btn btn-primary"  (click)="addNewTicketScanner()">Ajouter un Scanner de Ticket</button>
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th>ID Scanner</th>
+      <th>Nom de l'Agent</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ts of ticketScanners; let i = index">
+      <ng-container *ngIf="editingIndex !== i; else editMode">
+        <td>{{ ts.idScanner }}</td>
+        <td>{{ ts.agentName }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm"  (click)="editTicketScanner(i)">Modifier</button>
+          <button class="btn btn-primary btn-sm"  *ngIf="ts.idScanner" (click)="deleteTicketScanner(ts.idScanner)">Supprimer</button>
+        </td>
+      </ng-container>
+      <ng-template #editMode>
+        <td><input type="number" [(ngModel)]="ts.idScanner" name="idScanner-{{i}}" disabled></td>
+        <td><input type="text" [(ngModel)]="ts.agentName" name="agentName-{{i}}"></td>
+        <td>
+          <button class="btn btn-primary btn-sm"  (click)="onSubmit(ts, i)">Sauvegarder</button>
+          <button class="btn btn-primary btn-sm"  (click)="cancelEdit()">Annuler</button>
+        </td>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>

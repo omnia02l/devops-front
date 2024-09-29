@@ -1,0 +1,27 @@
+/* vote-statistics.component.css */
+.canvas-container {
+  width: 40%; /* Réduction de la taille du graphique */
+  height: auto; /* Maintien du ratio d'aspect */
+  margin: auto; /* Centrage si nécessaire */
+}
+
+/* Couleurs personnalisées */
+:host ::ng-deep .chartjs-render-monitor {
+  background-color: #f9f9f9; /* Couleur de fond */
+}
+
+:host ::ng-deep .chartjs-render-monitor .chartjs-size-monitor {
+  border-color: #001F3F; /* Bordure */
+}
+
+:host ::ng-deep .chartjs-render-monitor .chartjs-size-monitor-expand {
+  background-color: #660019; /* Couleur de fond lors de l'extension */
+}
+
+:host ::ng-deep .chartjs-render-monitor .chartjs-size-monitor-shrink {
+  background-color: #4D0013; /* Couleur de fond lors de la réduction */
+}
+
+:host ::ng-deep .chartjs-render-monitor canvas {
+  background-color: #fff; /* Couleur de fond du graphique */
+}

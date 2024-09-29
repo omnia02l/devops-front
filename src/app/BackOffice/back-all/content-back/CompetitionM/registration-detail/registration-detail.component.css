@@ -1,0 +1,67 @@
+/* Card */
+.card {
+  background-color: #fff; /* Blanc */
+  border: 1px solid #33000C; /* Rouge foncé */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Body */
+.card-body {
+  padding: 20px; /* Espacement intérieur légèrement accru */
+}
+
+/* Card Title */
+.card-title {
+  font-size: 1.5rem; /* Taille de police légèrement plus grande */
+  margin-bottom: 20px; /* Marge inférieure augmentée */
+  color: #A8043C; /* Rouge foncé */
+}
+
+/* Team Image */
+.team-image {
+  display: block; /* Pour centrer l'image */
+  margin: 0 auto; /* Pour centrer l'image horizontalement */
+  max-width: 100%; /* Largeur maximale de l'image */
+  height: auto; /* Hauteur automatique pour maintenir les proportions */
+  border-radius: 8px; /* Coins arrondis pour l'image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour l'image */
+  margin-bottom: 20px; /* Marge inférieure pour l'image */
+}
+
+/* Card Info */
+.card-info {
+  margin-bottom: 10px; /* Marge inférieure pour chaque élément d'information */
+}
+
+.card-info strong {
+  margin-right: 5px; /* Espacement entre le texte fort et le texte normal */
+}
+
+/* Action Buttons */
+.action-buttons {
+  text-align: center; /* Centrer les boutons */
+  margin-top: 20px; /* Espacement supérieur pour les boutons */
+}
+
+.action-buttons .btn {
+  margin-right: 10px; /* Espacement entre les boutons */
+}
+
+/* Hover effect on buttons */
+.btn:hover {
+  opacity: 0.8; /* Légère diminution de l'opacité au survol */
+}
+/* Button "Approve" */
+.action-buttons .btn-approve {
+  background-color: #A8043C; /* Rouge foncé */
+  border-color: #A8043C; /* Rouge foncé */
+  color: #fff; /* Texte blanc */
+}
+
+/* Button "Reject" */
+.action-buttons .btn-reject {
+  background-color: #410213; /* Rouge bordeaux */
+  border-color: #4b0216; /* Rouge bordeaux */
+  color: #fff; /* Texte blanc */
+}

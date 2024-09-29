@@ -1,0 +1,156 @@
+<section><div class="col-12" >
+  <div class="card px-6 py-6">
+    <p-toast></p-toast>
+    <p-toolbar styleClass="mb-4" >
+      <ng-template pTemplate="left">
+        <div class="my-2" >
+
+          <!--<button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="signupDialog = true; signupRequest = {}"></button>-->
+          <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" style="background-color: #A8043C; border-color: #A8043C;" (click)="signupDialog = true; signupRequest = {}"></button>
+
+        </div>
+      </ng-template>
+    </p-toolbar>
+
+    <p-table #dt [value]="accountsList" responsiveLayout="scroll" [rows]="5" [globalFilterFields]="['userName','email']"
+             [paginator]="true" [rowsPerPageOptions]="[5,15,30]" [showCurrentPageReport]="true"
+             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  [rowHover]="true" dataKey="id">
+      <ng-template pTemplate="caption">
+        <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+          <h3 class="m-0" style="color: #001F3F">Manage Users Accounts</h3>
+          <span class="block mt-2 md:mt-0 p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Search..."  class="w-full sm:w-auto"/>
+                        </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="userName" style="color: #A8043C;">Username <p-sortIcon field="userName"></p-sortIcon></th>
+          <th pSortableColumn="firstName" style="color: #A8043C;">First name <p-sortIcon field="firstName"></p-sortIcon></th>
+          <th pSortableColumn="lastName" style="color: #A8043C;">Last Name <p-sortIcon field="lastName"></p-sortIcon></th>
+          <th pSortableColumn="phoneNumber" style="color: #A8043C;">Phone number <p-sortIcon field="phoneNumber"></p-sortIcon></th>
+          <th pSortableColumn="email" style="color: #A8043C;">Email address <p-sortIcon field="email"></p-sortIcon></th>
+          <th style="color: #A8043C;">Role</th>
+          <th style="color: #A8043C;">Account status</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <td style="width:14%; min-width:10rem;">
+            <span class="p-column-title" style="color: #A8043C;">Username</span>
+            {{user.userName}}
+          </td>
+          <td style="width:14%; min-width:10rem;">
+            <span class="p-column-title">firstName</span>
+            {{user.firstName}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">lastName</span>
+            {{user.lastName}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">phoneNumber</span>
+            {{user.phoneNumber}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">emailAddress</span>
+            {{user.email}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">emailAddress</span>
+            {{user.role}}
+          </td>
+          <td style="width:14%; min-width:10rem;">
+            <span class="p-column-title">accountStatus</span>
+            <span *ngIf="user.status===false" style="color: #001F3F; font-size: large">Enable</span>
+            <span *ngIf="user.status===true" style="color: #A8043C; font-size: large">Disable</span>
+          </td>
+          <td>
+            <button pButton pRipple icon="pi pi-ban" class="p-button-rounded p-button-warning" style="background-color: #A8043C; border-color: #A8043C;" (click)="displayBanAccount = true; userName = user.userName"></button>
+          </td>
+          <td>
+            <button pButton pRipple icon="pi pi-check" class="p-button-rounded p-button-success" style="background-color: #001F3F; border-color: #001F3F;" (click)="displayEnableAccount = true; userName = user.userName"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-dialog [(visible)]="displayBanAccount" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+      <div class="flex align-items-center justify-content-center">
+        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+        <span>Are you sure you want to disable this account ?</span>
+      </div>
+      <ng-template pTemplate="footer">
+        <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="displayBanAccount = false"></button>
+        <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmBanAccount()"></button>
+      </ng-template>
+    </p-dialog>
+    <p-dialog [(visible)]="displayEnableAccount" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+      <div class="flex align-items-center justify-content-center">
+        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+        <span>Are you sure you want to enable this account ?</span>
+      </div>
+      <ng-template pTemplate="footer">
+        <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="displayEnableAccount = false"></button>
+        <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmEnableAccount()"></button>
+      </ng-template>
+    </p-dialog>
+
+    <p-dialog [(visible)]="signupDialog" [style]="{width: '450px'}" [closable]="false" header="Account Details" [modal]="true" class="p-fluid">
+      <ng-template pTemplate="content">
+        <div class="field">
+          <label>Username</label>
+          <input type="text" pInputText [(ngModel)]="signupRequest.username" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !signupRequest.username}"/>
+          <small class="ng-dirty ng-invalid" *ngIf="submitted && !signupRequest.username">Username is required.</small>
+        </div>
+        <div class="field">
+          <label>First name</label>
+          <input type="text" pInputText [(ngModel)]="signupRequest.firstName" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !signupRequest.firstName}"/>
+          <small class="ng-dirty ng-invalid" *ngIf="submitted && !signupRequest.firstName">First name is required.</small>
+        </div>
+        <div class="field">
+          <label>Last name</label>
+          <input type="text" pInputText [(ngModel)]="signupRequest.lastName" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !signupRequest.lastName}"/>
+          <small class="ng-dirty ng-invalid" *ngIf="submitted && !signupRequest.lastName">Last name is required.</small>
+        </div>
+        <div class="field col">
+          <label>Role</label>
+          <p-dropdown [options]="option" [(ngModel)]="signupRequest.role" placeholder="Select role"
+                      [showClear]="true"></p-dropdown>
+        </div>
+        <div class="field">
+          <label>Phone number</label>
+          <p-inputMask mask="(+216) 99-999-999" [(ngModel)]="signupRequest.phoneNumber" placeholder="(+216) 99-999-9999"></p-inputMask>
+        </div>
+        <div class="field">
+          <label>Email address</label>
+          <input type="text" pInputText [(ngModel)]="signupRequest.email" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !signupRequest.email}"/>
+          <small class="ng-dirty ng-invalid" *ngIf="submitted && !signupRequest.email">Email Address is required.</small>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" pInputText [(ngModel)]="signupRequest.password" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !signupRequest.password}"/>
+          <small class="ng-dirty ng-invalid" *ngIf="submitted && !signupRequest.password">Password is required.</small>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="signupDialog = false; signupRequest = {};submitted = false"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check"  class="p-button-text" (click)="createAccount()"></button>
+      </ng-template>
+    </p-dialog>
+  </div>
+</div>
+
+  <div class="col-12">
+    <div class="card px-6 py-6">
+      <h2 style="color: #A8043C; text-shadow: 3px 3px 10px rgba(0,0,0,0.5);">Account status stats</h2>
+      <div class="flex justify-content-center">
+        <p-chart type="bar" [data]="data" [options]="optionsChart" width="400px" height="400px"></p-chart>
+      </div>
+    </div>
+  </div>
+
+</section>

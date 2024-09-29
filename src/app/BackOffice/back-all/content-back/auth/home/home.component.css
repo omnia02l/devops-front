@@ -1,0 +1,168 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+header, nav, section, footer {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+
+}
+
+@keyframes changeColor {
+  0% {
+    background-color: #A8043C; /* Début de l'animation : couleur rose foncé */
+  }
+  20% {
+    background-color: #8B0026; /* Une couleur intermédiaire */
+  }
+  40% {
+    background-color: #660019; /* Une autre couleur intermédiaire */
+  }
+  60% {
+    background-color: #4D0013; /* Encore une autre couleur intermédiaire */
+  }
+  80% {
+    background-color: #33000C; /* Une autre couleur intermédiaire */
+  }
+  100% {
+    background-color: #001F3F; /* Fin de l'animation : couleur bleu marine */
+  }
+}
+
+header {
+  color: #FFF; /* Blanc */
+  text-align: center;
+  padding: 10px;
+  font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+  animation: changeColor 10s infinite alternate; /* Utilisation de l'animation avec une durée de 10 secondes, en boucle */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #000;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #201C2C;
+}
+
+section {
+  padding: 0; /* Conservez le padding à 0 ou ajustez selon vos besoins */
+  position: relative; /* Position relative pour permettre un positionnement absolu interne */
+  height: 1000px; /* Hauteur fixe; ajustez selon vos besoins */
+  overflow-y: auto; /* Active le défilement vertical si le contenu dépasse la hauteur */
+  width: 100%; /* Assurez-vous que la section occupe la largeur voulue */
+  box-sizing: border-box;
+   /* Inclut le padding et la bordure dans la largeur/hauteur totale */
+}
+
+.video-wrap {
+  position: relative;
+  height: 0; /* Changer la hauteur à 0 pour que la vidéo s'ajuste dynamiquement */
+  padding-bottom: 56.25%; /* Rapport d'aspect 16:9 (9/16 * 100) */
+  overflow: hidden; /* Masquer tout contenu qui dépasse */
+}
+
+.custom-video {
+  width: 100%; /* Ajuster la largeur pour occuper tout l'espace disponible */
+  height: 100%; /* Ajuster la hauteur pour occuper tout l'espace disponible */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+footer {
+  background-color: #201C2C;
+  color: #FFF;
+  text-align: center;
+  padding: 0px 0;
+}
+footer a {
+  color: #FFF; /* Couleur du lien */
+  text-decoration: none; /* Supprime le soulignement par défaut du lien */
+}
+h6 {
+  font-family: Garet, sans-serif; /* Utilisation de la police Garet */
+  color: white; /* Couleur du texte en blanc */
+  font-weight: bold; /* Police en gras */
+  text-shadow:
+    0px 5px 5px rgba(0, 0, 0, 0.2), /* Ombre légère au-dessus */
+    0px 10px 10px rgba(0, 0, 0, 0.4), /* Ombre plus prononcée */
+    0px 15px 15px rgba(0, 0, 0, 0.6); /* Ombre la plus prononcée */
+}
+.p-tabMenu {
+  font-family: Garet, sans-serif; /* Utilisation de la police Garet */
+  color: white; /* Couleur du texte en blanc */
+  text-shadow:
+    0px 8px 8px rgba(0, 0, 0, 0.2), /* Ombre légère au-dessus */
+    0px 16px 16px rgba(0, 0, 0, 0.4), /* Ombre plus prononcée */
+    0px 24px 24px rgba(0, 0, 0, 0.6); /* Ombre la plus prononcée */
+}
+.logout-button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transition pour le changement de couleur de fond */
+  margin-left: auto; /* Déplacer le bouton à droite */
+  border-radius: 20px; /* Rendre le bouton avec des coins arrondis */
+  font-family: Arial;
+}
+
+.logout-button:hover {
+  background-color: #A8043C; /* Rose au survol */
+}
+
+.header-content {
+  display: flex;
+  align-items: center; /* Pour aligner verticalement les éléments */
+}
+#content-section {
+  position: relative;
+  overflow: auto; /* Masque les débordements de la vidéo */
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: rgba(0,0,0,0.5);
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+
+}
+.content {
+  position: relative;
+  z-index: 1; /* Make sure content is above the video */
+  padding: 20px; /* Optional: for better content visibility */
+
+}

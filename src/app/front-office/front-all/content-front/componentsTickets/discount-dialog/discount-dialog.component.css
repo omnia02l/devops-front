@@ -1,0 +1,26 @@
+.custom-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: transparent;
+    color: rgba(0, 15, 111, 0.741);
+    border: 2px solid rgba(0, 15, 111, 0.741);
+    border-radius: 50px; /* Rayon de bordure élevé pour créer un bouton ovale */
+    transition: color 0.3s, background-color 0.3s; /* Animation fluide pour le changement de couleur */
+    text-align: center;
+    text-decoration: none; /* Retirer le soulignement si c'est un lien (<a>) */
+  }
+  
+  /* CSS pour l'état du bouton lorsqu'il est survolé */
+  .custom-btn:hover {
+    background-color:#a8043c ;
+    color: white;
+  }
+  
+  /* CSS pour l'état du bouton lorsqu'il est actif ou sélectionné */
+  .custom-btn:active, .custom-btn.selected {
+    background-color: white;
+    color: #a8043c;
+  }
+  

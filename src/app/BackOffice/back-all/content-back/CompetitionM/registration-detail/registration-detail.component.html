@@ -1,0 +1,48 @@
+<!-- registration-detail.component.html -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Registration Details</h5>
+
+          <div *ngIf="registration">
+            <!-- Show Videolink as an image (placed first for emphasis) -->
+            <div *ngIf="registration.videolink">
+              <img [src]="registration.videolink" alt="Team Image" class="team-image">
+            </div>
+
+            <div class="card-info">
+              <strong>Username:</strong> {{ registration.username}}
+            </div>
+            <div class="card-info">
+              <strong>Registration Date:</strong> {{ registration.registration_date }}
+            </div>
+            <div class="card-info">
+              <strong>Status:</strong> {{ registration.statusreg }}
+            </div>
+            <div class="card-info">
+              <strong>Amount Paid:</strong> {{ registration.amountpaid }}
+            </div>
+
+            <!-- Show Approved Date if status is Approved -->
+            <div *ngIf="registration.statusreg === 'Approved'" class="card-info">
+              <strong>Approved Date:</strong> {{ registration.approved_date | date: 'yyyy-MM-dd HH:mm:ss' }}
+            </div>
+
+            <!-- Show Rejected Date if status is Rejected -->
+            <div *ngIf="registration.statusreg === 'Rejected'" class="card-info">
+              <strong>Rejected Date:</strong> {{ registration.rejected_date | date: 'yyyy-MM-dd HH:mm:ss' }}
+            </div>
+
+            <!-- Add buttons for approval and rejection -->
+            <div class="action-buttons mt-3">
+              <button class="btn btn-approve" (click)="approveRegistration()">Approve</button>
+              <button class="btn btn-reject" (click)="rejectRegistration()">Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff; /* Example primary color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from links styled as buttons */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade for hover */
+}
+
+.material-icons {
+    font-size: 24px; /* Icon size */
+    margin-right: 8px; /* Space between icon and text */
+}

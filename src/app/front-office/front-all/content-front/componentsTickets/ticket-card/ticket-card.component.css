@@ -1,0 +1,75 @@
+/* Appliquer l'image de fond du théâtre à toute la section des tickets */
+.ticket-section {
+  background-image: url('src/assets/FrontOffice/images/young-graceful-ballet-dancer-isolated-purple-studio-background-neon-light.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Overlay pour assombrir l'image de fond et améliorer la lisibilité */
+.section-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Modifiez l'opacité au besoin */
+  z-index: 1;
+}
+
+/* Assurez-vous que le contenu de la section est au-dessus de l'overlay */
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Utiliser les couleurs du thème pour le titre et autres éléments */
+.white-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 10px;
+  /* Plus de styles au besoin */
+}
+
+/* Styles de formulaire personnalisé pour les détails du ticket */
+.custom-form {
+  background-color: #383a52ec; /* Semi-transparent pour le fond des formulaires */
+  border-radius: 10px;
+  padding: 20px;
+  color: white; /* Texte blanc pour la lisibilité */
+}
+
+/* Les boutons doivent correspondre au style du reste de la page */
+.custom-btn {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4caf50; /* Fond vert pour les boutons */
+  color: white; /* Texte en blanc */
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  border: none; /* Pas de bordure pour les boutons */
+}
+
+/* Styles pour les notifications d'alerte */
+.alert {
+  background-color: #323232ee; /* Fond des alertes semi-transparent */
+  color: white; /* Texte blanc pour les alertes */
+  border-left: 5px solid #4caf50; /* Bordure colorée pour distinguer les alertes */
+  padding: 10px 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+/* Modifier les alertes lorsqu'elles sont fermées */
+.alert-dismissible .close {
+  color: white;
+}
+
+/* Ajouter des styles supplémentaires au besoin ici */

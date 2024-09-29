@@ -1,0 +1,20 @@
+<app-add-category></app-add-category>
+<div class="container">
+  <h2>Categories</h2>
+  <ul class="list-group">
+    <li *ngFor="let category of categories" class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        {{ category.name }} - {{ category.description }}
+      </div>
+      <div>
+        <button class="btn btn-primary btn-sm" style="background-color: #A8043C; border-color: #A8043C;" (click)="redirectToUpdate(category.categoryId)">Update</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteCategory(category.categoryId)">Delete</button>
+
+      </div>
+    </li>
+    <li *ngIf="categories.length === 0" class="list-group-item">
+      No categories found.
+    </li>
+  </ul>
+</div>
+

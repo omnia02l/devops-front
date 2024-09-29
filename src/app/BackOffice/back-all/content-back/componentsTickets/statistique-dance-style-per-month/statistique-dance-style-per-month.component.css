@@ -1,0 +1,58 @@
+.stats-container {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .title {
+    color: #660019; /* Violet color for the title */
+    text-align: center;
+  }
+  
+  .year-selector {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .year-btn {
+    background-color: #660019; /* Violet color for the buttons */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .year-btn:hover {
+    background-color: #9c193a; /* A lighter violet for hover effect */
+  }
+  
+  .chart-container {
+    background-color: transparent;
+    padding: 0;
+  }
+  
+  .chart-title {
+    color:#660019; /* Violet color for the chart title */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  .main-title {
+    color: #000566; /* Violet color for the title */
+    text-align: center;
+  }
+  .description{
+    color: #090a16; /* Violet color for the title */
+    text-align: center;
+  }
+  

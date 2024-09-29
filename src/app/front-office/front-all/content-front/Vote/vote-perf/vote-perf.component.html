@@ -1,0 +1,19 @@
+<button class="white-text-button" routerLink="/home/Vote">Show All My Votes</button>
+
+<div *ngFor="let competitionPerformance of competitionPerformances" class="competition-container">
+  <h3>{{ competitionPerformance.compname }}</h3>
+  <p>Start Date: {{ competitionPerformance.startdate | date:'shortDate' }}</p>
+  <p>End Date: {{ competitionPerformance.enddate | date:'shortDate' }}</p>
+
+  <ul class="performances-list">
+    <ul *ngFor="let performance of competitionPerformance.performances" class="performance-item">
+      <h4>{{ performance.perftitle }}</h4>
+      <p>Performance Date: {{ performance.perfdate | date:'shortDate' }}</p>
+      <p>Description: {{ performance.pdescreption }}</p>
+      <p>Start Time: {{ performance.starttime }}</p>
+      <p>End Time: {{ performance.endtime }}</p>
+      <button class="white-text-button" (click)="openVoteDialog(performance.idperf)">Vote</button>
+      <button class="white-text-button" (click)="showVoteCalendar(performance.idperf)">Show Vote Calendar</button>
+    </ul>
+  </ul>
+</div>

@@ -1,0 +1,91 @@
+/* Style pour le conteneur principal */
+.container {
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center; /* Centrer le contenu */
+}
+
+/* Style pour le champ de saisie et le bouton de recherche */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrer les éléments horizontalement */
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #8B0026; /* Rouge foncé */
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-button {
+  background-color: #A8043C; /* Rouge */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #660019; /* Rouge foncé */
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center; /* Centrer les cartes verticalement */
+}
+
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100px;
+  width: 250px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.cards .card p.tip {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
+
+/* Colors for the cards */
+.cards .red {
+  background-color: #A8043C; /* Rouge */
+}
+
+
+
+/* Style pour le message "No suggestions found" */
+.no-suggestions {
+  margin-top: 20px;
+  color: #fdfdfd; /* Rouge foncé */
+  font-size: 16px;
+}
+h3 {
+  color: #001F3F; /* Couleur du texte */
+  font-size: 24px; /* Taille de la police */
+  text-align: center; /* Alignement du texte */
+  margin-top: 20px; /* Marge supérieure */
+}

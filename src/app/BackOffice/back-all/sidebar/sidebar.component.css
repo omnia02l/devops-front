@@ -1,0 +1,82 @@
+.layout-menu {
+    width: 250px; /* Adjust width as necessary */
+    background-color: #0c0c0c; /* Background color of the sidebar */
+  }
+  
+  .app-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50%; /* Logo padding */
+  }
+  
+  .app-logo {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .menu-link {
+    display: flex;
+    align-items: center;
+    color: #202020; /* Default text color */
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .menu-link:hover {
+    background-color: #a8043c; /* Lilac */
+    color: #ffffff;
+  }
+  
+  .menu-item.selected > .menu-link {
+    background-color: #a8043c; /* Pink */
+    color: #1b1818;
+  }
+  
+  .menu-item .pi {
+    margin-left: auto; /* Push icons to the right */
+  }
+  .menu-link {
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* White color for text */
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .menu-link:hover {
+    background-color: #a8043c; /* Lilac */
+    color: #333; /* Darker text on hover */
+  }
+  
+  .menu-item.selected > .menu-link {
+    background-color: #a8043c; /* Pink */
+    color: #333; /* Darker text when selected */
+  }
+  
+  .menu-item .pi {
+    margin-left: auto; /* Push icons to the right */
+    color: #3f3d3d; /* White color for icons */
+  }
+  .app-brand-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .app-brand-text {
+    font-size: 20px;
+    color: #000; /* Default color */
+    font-weight: bold;
+    margin-top: 8px; /* Adjust spacing as needed */
+  }
+  
+  .app-brand-text span {
+    color: #8B0000; /* A darker, complementary color */
+  }
+  .layout-menu {
+    background-color: rgba(0, 0, 0, 0.8); /* Black with transparency */
+    color: #ffffff; /* White text for readability */
+  }
+  

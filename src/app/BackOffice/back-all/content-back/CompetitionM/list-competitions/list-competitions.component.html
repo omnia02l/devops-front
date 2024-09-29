@@ -1,0 +1,37 @@
+<!-- HTML modifié pour utiliser les couleurs de la palette -->
+
+<div class="add-competition-container">
+  <a href="/admin/add-competition" class="btn-circle" style="background-color: #A8043C;">
+    + <!-- Utilisez la couleur principale pour le fond du bouton -->
+  </a>
+  <span class="btn-text">
+    <h3 style="color: #a11f3f;">Add Competition</h3> <!-- Utilisez la couleur d'accent pour le texte -->
+  </span>
+</div>
+
+<div *ngIf="competitions.length > 0; else noCompetitions">
+ 
+  <div class="card-container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let competition of competitions">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #A8043C;">{{ competition.compname }}</h5> <!-- Utilisez la couleur principale pour le titre -->
+            <p class="card-text">
+              <strong style="color: #660019;">Start Date:</strong> {{ competition.startdate | date }} <br> <!-- Utilisez la couleur d'accent pour les éléments forts -->
+              <strong style="color: #660019;">End Date:</strong> {{ competition.enddate | date }} <br>
+              <strong style="color: #660019;">Category:</strong> {{ competition.dancecateg?.categdname }} <br>
+              <strong style="color: #660019;">Style:</strong> {{ competition.style }}
+            </p>
+            <button (click)="viewCompetitionDetails(competition.idcomp)" class="btn btn-primary" style="background-color: #660019;">View Details</button> <!-- Utilisez la couleur d'accent pour le fond du bouton -->
+            <button (click)="updateCompetition(competition.idcomp)" class="btn btn-success" style="background-color: #4D0013;">Update</button> <!-- Utilisez une autre couleur d'accent pour le bouton Update -->
+            <button (click)="deleteCompetition(competition.idcomp)" class="btn btn-danger" style="background-color: #8B0026;">Delete</button> <!-- Utilisez une autre couleur d'accent pour le bouton Delete -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noCompetitions>
+  <p style="color: #A8043C;">No competitions available.</p> <!-- Utilisez la couleur principale pour le texte -->
+</ng-template>

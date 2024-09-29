@@ -1,0 +1,72 @@
+/* Bouton "Add Town&venues" */
+.btn-primary {
+  background-color: #660019; /* Rouge foncé */
+  color: #fff; /* Texte blanc */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #8B0026; /* Rouge */
+}
+
+/* Card */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.card-header {
+  background-color: #A8043C; /* Rouge foncé */
+  color: #fff;
+  border-radius: 8px 8px 0 0;
+  padding: 10px 15px;
+}
+
+/* Card Body */
+.card-body {
+  padding: 20px;
+}
+
+/* List Group Item */
+.list-group-item {
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 0;
+  transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+  background-color: #ddd;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 30px auto; /* Centrer le conteneur */
+}
+
+/* Card Title */
+h3.card-title {
+  margin-bottom: 0;
+}
+
+/* Venues Title */
+h5 {
+  color: #660019; /* Rouge foncé */
+  margin-top: 20px;
+  margin-bottom: 15px;
+}

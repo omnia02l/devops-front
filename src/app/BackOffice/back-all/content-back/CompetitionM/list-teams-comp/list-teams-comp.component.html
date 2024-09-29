@@ -1,0 +1,12 @@
+<div *ngIf="competitionTeams" class="competition-container">
+  <h2 style="color: #A8043C;">Competition with Teams</h2>
+  <div *ngFor="let competition of competitionTeams | keyvalue" class="competition-card">
+    <div class="competition-header">
+      <h3 class="competition-name" style="color: #ece5e7;">{{ competition.key }}</h3>
+      <span class="teams-count" style="color: #e7e1e2;">{{ competition.value.length }} team(s)</span>
+    </div>
+    <ul class="teams-list">
+      <li *ngFor="let team of competition.value" class="team" style="color: #4D0013;">{{ team }}</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+/* vote.component.css */
+.container {
+  text-align: center;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.no-competitions {
+  margin-top: 20px;
+}

@@ -1,0 +1,43 @@
+<!-- payment-form.component.html 
+<div class="container">
+    <h2>Payment Form</h2>
+    <form (ngSubmit)="submitPayment()">
+      <div class="form-group">
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" class="form-control" [(ngModel)]="cardNumber" name="cardNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="expirationDate">Expiration Date:</label>
+        <input type="text" id="expirationDate" class="form-control" [(ngModel)]="expirationDate" name="expirationDate" required>
+      </div>
+      <div class="form-group">
+        <label for="cvc">CVC:</label>
+        <input type="text" id="cvc" class="form-control" [(ngModel)]="cvc" name="cvc" required>
+      </div>
+      <div class="form-group">
+        <label for="cardholderName">Cardholder Name:</label>
+        <input type="text" id="cardholderName" class="form-control" [(ngModel)]="cardholderName" name="cardholderName" required>
+      </div>
+     Add more input fields for additional payment details if needed 
+      
+      <button type="submit" class="btn btn-primary">Submit Payment</button>
+    </form>
+  </div>
+  -->
+
+
+<!--   <div class="paypal-container">
+    <div class="amount">Total amount to pay: ${{amount}}</div>
+    <div class="info">Please do not refresh the browser while the transaction is processing</div>
+    <div #paymentRef></div>
+    <div class="back" (click)="cancel()">Cancel</div>
+  </div> -->
+  
+
+  <div class="paypal-container">
+    <div class="amount">Total amount to pay: ${{ totalCartPrice }}</div>
+    <div class="info">Please do not refresh the browser while the transaction is processing</div>
+    <div #paymentRef></div>
+    <div class="back" (click)="cancel()">Cancel</div>
+  </div>
+  

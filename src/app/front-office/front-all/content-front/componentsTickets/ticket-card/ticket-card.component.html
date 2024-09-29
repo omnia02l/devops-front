@@ -1,0 +1,81 @@
+
+
+
+
+        <section class="ticket-section section-padding" *ngIf="ticketCard">
+          <div class="section-overlay"></div>
+          <div class="container">
+            <div class="row">
+              <!-- Div pour le titre -->
+              <div class="col-12 text-center mb-4">
+                <h2 class="white-title">Your Ticket Details</h2>
+              </div>
+
+              
+              <!-- Div pour chaque ticket -->
+              <div class="col-lg-6 col-10 mx-auto" *ngFor="let ticket of ticketCard.tickets">
+                <div class="custom-form ticket-form mb-5 mb-lg-0">
+                  <div class="ticket-form-body">
+                    <h6>Ticket Type: {{ ticket.typeTicket }}</h6>
+                    <p>Reference: {{ ticket.refTicket }}</p>
+                    <img *ngIf="ticket.qrCodeBase64" [src]="ticket.qrCodeBase64" alt="Ticket QR Code">
+                    <p>Number of Places: {{ ticket.places?.seatNumber }}</p> <!-- Ajustez en fonction de la structure de vos données -->
+                    <p>Price: {{ ticket.price?.price }} TDN</p>
+                    <p>Expiration Date: {{ ticket.expireDate | date:'mediumDate' }}</p>
+                    <div class="form-group">
+                      <label for="ageGroupSelect{{ ticket.idTicket }}">Age Group</label>
+                      <select [(ngModel)]="ticket.selectedTrancheAge" 
+                              (change)="changeAgeGroup(ticket.idTicket!, ticket.selectedTrancheAge!)" 
+                              id="ageGroupSelect{{ ticket.idTicket }}"
+                              class="form-control">
+                        <option *ngFor="let age of TrancheAge | keyvalue" [value]="age.key">
+                          {{ age.value }}
+                        </option>
+                      </select>
+                    </div>
+                    
+                      
+                  </div>
+                </div>
+              </div>
+              
+            <div class="ticket-form-body">  
+                  <div class="col-12 text-center mt-4">
+                    <a class="custom-btn">Total du Panier: {{ ticketCard.total }} TDN</a>
+                  </div>
+                </div>
+            </div>
+                      <!-- Success Notification -->
+          <div *ngIf="discountApplied" class="alert alert-success alert-dismissible fade show" role="alert">
+            Discount applied successfully to your ticket card.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="discountApplied=false">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <!-- Error Notification -->
+          <div *ngIf="discountError" class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ discountError }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="discountError=''">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- Dans votre fichier ticket-card.component.html ou tout autre fichier HTML pertinent -->
+          <div class="col-12 text-center mt-4">
+            <h2>Have a discount code?</h2>
+            <!-- Texte cliquable pour ouvrir le dialogue de réduction -->
+            <span (click)="openDiscountDialog()" class="discount-code">Enter your discount code here</span>
+          </div>
+          <div class="ticket-form-body">
+            <button class="custom-btn" (click)="goBack()">
+              <mat-icon>arrow_back</mat-icon>
+            </button>
+          </div>
+          
+          <div class="ticket-form-body">
+          <button class="custom-btn" (click)="goToPurchaseTransaction()">Go to Purchase Transaction</button>
+            </div>
+        </div>  
+    
+        </section>
+ 

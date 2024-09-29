@@ -1,0 +1,28 @@
+.titre-container {
+    border: 2px solid black;
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .titre {
+    color: #A8043C;
+  }
+  .card-custom {
+    background-color: #E8C4D0;
+}
+
+.custom-search-button {
+    background-color: #8B0026 !important;
+}
+
+.custom-placeholder ::ng-deep .p-placeholder {
+    color: #8B0026 !important;
+}
+.custom-div-color {
+    background-color: #E8C4D0;
+}
+
+.custom-title-color {
+    color: #8B0026;
+}

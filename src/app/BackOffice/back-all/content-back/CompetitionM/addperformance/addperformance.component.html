@@ -1,0 +1,52 @@
+<div class="container" style="display: flex; justify-content: center; align-items: center;">
+  <div class="card mb-4" style="border-color: #8B0026; width: 900px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+    <div class="card-header d-flex align-items-center justify-content-between" style="background-color: #8B0026; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+      <h5 class="mb-0" style="color: #FFFFFF;">Add Performance</h5>
+      <small class="text-muted float-end" style="color: #FFFFFF;"></small>
+    </div>
+    <div class="card-body" style="padding: 15px;">
+      <form [formGroup]="performanceForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="compId" style="color: #8B0026;">Competition</label>
+          <select class="form-control" id="compId" formControlName="compId" (change)="onCompetitionSelected($event)">
+            <option *ngFor="let competition of competitions$ | async" [value]="competition.idcomp">{{ competition.compname }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="teamId" style="color: #8B0026;">Team</label>
+          <select class="form-control" id="teamId" formControlName="teamId" (change)="onTeamSelected($event)">
+            <option *ngFor="let team of teams$ | async" [value]="team.idteam">{{ team.teamname }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="perfdate" style="color: #8B0026;">Performance Date</label>
+          <input type="date" class="form-control" formControlName="perfdate" id="perfdate">
+        </div>
+
+        <div class="form-group">
+          <label for="starttime" style="color: #8B0026;">Start Time</label>
+          <input type="time" class="form-control" formControlName="starttime" id="starttime">
+        </div>
+
+        <div class="form-group">
+          <label for="endtime" style="color: #8B0026;">End Time</label>
+          <input type="time" class="form-control" formControlName="endtime" id="endtime">
+        </div>
+
+        <div class="form-group">
+          <label for="perftitle" style="color: #8B0026;">Performance Title</label>
+          <input type="text" class="form-control" formControlName="perftitle" id="perftitle">
+        </div>
+
+        <div class="form-group">
+          <label for="pdescreption" style="color: #8B0026;">Description</label>
+          <textarea class="form-control" formControlName="pdescreption" id="pdescreption"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="background-color: #8B0026; border-color: #8B0026;">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

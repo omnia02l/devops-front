@@ -1,0 +1,64 @@
+<div *ngIf="competition" class="container" style="display: flex; justify-content: center; align-items: center;">
+  <div class="card" style="border: 2px solid #8B0026; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+    <div class="card-body">
+
+      <div class="competition-details">
+        <h2 style="color: #A8043C;">{{ competition.compname }}</h2>
+        <p>{{ competition.cdescreption }}</p>
+        <div class="details-table">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row" style="color: #8B0026;">Start Date</th>
+                <td>{{ competition.startdate | date }}</td>
+              </tr>
+              <tr>
+                <th scope="row" style="color: #8B0026;">End Date</th>
+                <td>{{ competition.enddate | date }}</td>
+              </tr>
+              <tr>
+                <th scope="row" style="color: #8B0026;">Registration Deadline</th>
+                <td>{{ competition.regisdeadline | date }}</td>
+              </tr>
+              <tr>
+                <th scope="row" style="color: #8B0026;">Number of Dancers</th>
+                <td>{{ competition.nbdancers }}</td>
+              </tr>
+              <tr>
+                <th scope="row" style="color: #8B0026;">Fees per Participant</th>
+                <td>{{ competition.feesperparticipant }}</td>
+              </tr>
+              <tr>
+                <th scope="row" style="color: #8B0026;">Age Group</th>
+                <td>{{ competition.ageg }}</td>
+              </tr>
+              <tr>
+                <th scope="row" style="color: #8B0026;">Competition Status</th>
+                <td>{{ competition.compstatus }}</td>
+              </tr>
+              <tr>
+                <th scope="row" style="color: #8B0026;">Style</th>
+                <td>{{ competition.style }}</td>
+              </tr>
+              <tr>
+                <th scope="row" style="color: #8B0026;">Dance Category</th>
+                <td>{{ competition.dancecateg?.categdname }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="competition" style="display: flex; justify-content: center; align-items: center;">
+          <div style="width: 400px; height: 300px;">
+            <canvas id="genderStatsCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngIf="!competition" class="container" style="display: flex; justify-content: center; align-items: center;">
+  <p>No competition details available.</p>
+</div>

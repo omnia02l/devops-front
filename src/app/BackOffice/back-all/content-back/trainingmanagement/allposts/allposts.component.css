@@ -1,0 +1,53 @@
+.titre-container {
+    border: 2px solid black;
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .titre {
+    color: #A8043C;
+  }
+  .custom-btn-color {
+    background-color: #8B0026; /* Couleur personnalisée */
+    border-color: #8B0026; /* Bordure de couleur personnalisée */
+    color: #fff; /* Texte blanc */
+}
+
+.custom-btn-color:hover {
+    background-color: #720019; /* Couleur personnalisée au survol */
+    border-color: #720019; /* Bordure de couleur personnalisée au survol */
+}
+.custom-dialog {
+    background-color: #E8C4D0; /* Couleur de fond du dialogue */
+  }
+  
+  .custom-button {
+    background-color: #8B0026; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte du bouton */
+    border-color: #8B0026; /* Couleur de la bordure du bouton */
+  }
+  
+  .custom-button:hover {
+    background-color: #6B001C; /* Couleur de fond du bouton au survol */
+    border-color: #6B001C; /* Couleur de la bordure du bouton au survol */
+  }
+  .bg-custom-color {
+    background-color: #E8C4D0; /* Couleur de fond personnalisée */
+}
+
+.custom-text-color {
+    color: #8B0026; /* Couleur de texte personnalisée */
+}
+.double-border {
+    border: 2px double #001F3F; /* Double bordure de couleur #001F3F */
+}
+.custom-button {
+    background-color: #8B0026 !important; /* Couleur de fond personnalisée */
+    color: #fff !important; /* Couleur du texte */
+    border: none !important; /* Suppression de la bordure */
+}
+
+.custom-button:hover {
+    background-color: #6A001D !important; /* Couleur de survol */
+}

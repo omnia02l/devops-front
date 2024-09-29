@@ -1,0 +1,21 @@
+<div class="stats-container">
+  <h1 class="main-title">Dance Style Ticket Sales Analysis</h1>
+  <p class="description">
+    Explore the trends in ticket sales by dance style over different months. Select a year to see specific data.
+  </p>
+  <div class="year-selector">
+    <!-- Buttons to select a year -->
+    <button class="year-btn" (click)="onSelectYear(lastYear)">Last Year</button>
+    <button class="year-btn" (click)="onSelectYear(currentYear)">This Year</button>
+  </div>
+
+  <div class="chart-container">
+    <h3 class="chart-title">Ticket Sales Statistics</h3>
+    <canvas baseChart
+            [options]="lineChartOptions"
+            [datasets]="lineChartData"
+            [labels]="lineChartData"
+            [type]="'line'">
+    </canvas>
+  </div>
+</div>

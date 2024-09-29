@@ -1,0 +1,40 @@
+<button class="btn btn-primary" (click)="addNewPurchaseTransaction()">Ajouter une Transaction</button>
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th>ID Transaction</th>
+      <th>Total</th>
+      <th>E-Ticket</th>
+      <th>Date d'Achat</th>
+      <th>Nombre de Places</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transaction of purchaseTransactions; let i = index">
+      <ng-container *ngIf="editingIndex !== i; else editMode">
+        <td>{{ transaction.idPTransaction }}</td>
+        <td>{{ transaction.totalTr }}</td>
+        <td>{{ transaction.eticket }}</td>
+        <td>{{ transaction.purchaseDate | date }}</td>
+        <td>{{ transaction.nbPlace }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm"  (click)="editPurchaseTransaction(i)">Modifier</button>
+          <button class="btn btn-primary btn-sm"  *ngIf="transaction.idPTransaction" (click)="deletePurchaseTransaction(transaction.idPTransaction)">Supprimer</button>
+        </td>
+      </ng-container>
+      <ng-template #editMode>
+        <td><input type="number" [(ngModel)]="transaction.idPTransaction" name="idPTransaction-{{i}}" disabled></td>
+        <td><input type="number" [(ngModel)]="transaction.totalTr" name="totalTr-{{i}}"></td>
+        <td><input type="text" [(ngModel)]="transaction.eticket" name="eticket-{{i}}"></td>
+        <td><input type="date" [(ngModel)]="transaction.purchaseDate" name="purchaseDate-{{i}}"></td>
+        <td><input type="number" [(ngModel)]="transaction.nbPlace" name="nbPlace-{{i}}"></td>
+        <td>
+          <button (click)="onSubmit(transaction, i)">Sauvegarder</button>
+          <button (click)="cancelEdit()">Annuler</button>
+          </td>
+          </ng-template>
+          </tr>
+          
+            </tbody>
+          </table>

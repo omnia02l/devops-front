@@ -1,0 +1,11 @@
+
+<div class="page-container">
+  <!-- qr-scanner.component.html -->
+<div #qrScanner id="qrScanner" class="qr-scanner-container"></div>
+<button mat-button color="primary" (click)="ngOnDestroy()">Exit</button>
+
+<!-- Message d'erreur si l'utilisateur n'est pas autorisé -->
+<div *ngIf="userRole !== 'coach'" class="permission-denied-message">
+  You do not have permission to access the QR scanner.
+</div>
+</div>

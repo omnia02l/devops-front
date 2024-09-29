@@ -1,0 +1,26 @@
+<!-- Display recommended products -->
+<div class="recommended-products">
+    <div class="container">
+        <h2>Recommended Products</h2>
+      
+        <!-- Container for recommended products with horizontal scroll -->
+        <div class="recommended-products-container">
+          <div class="recommended-products" [@swipeAnimation]="currentIndex">
+            <!-- Loop through each recommended product in the recommendedProducts array -->
+            <div class="product-card" *ngFor="let product of recommendedProducts; let i = index" (click)="viewProductDetails(product)" @hoverAnimation>
+              <img [src]="product['imagestore'].imageUrl" class="card-img-top" alt="{{ product.title }}" style="max-height: 200px; max-width: 200px; object-fit: contain;">
+              <div class="product-details">
+                <h5 class="product-title">{{ product.title }}</h5>
+                <p class="product-description">{{ product.description }}</p>
+                <p class="product-price">Price: {{ product.price | currency }}</p>
+                <small class="text-muted">{{ product.quantity === 0 ? 'Out of Stock' : 'In Stock' }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    <!-- Voir Plus button -->
+  </div>
+  <button (click)="redirectToRecommendedProductsPage()">VOIR PLUS</button>

@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row mb-3">
+    <div class="col">
+      <div class="card mb-4" style="border-color: #8B0026;">
+        <div class="card-header d-flex align-items-center justify-content-between" style="background-color: #8B0026;">
+          <h5 class="mb-0" style="color: #FFFFFF;">Update Dance Category </h5>
+
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="danceCategoryForm" (ngSubmit)="submitForm()">
+      <div class="mb-3">
+        <label for="categdname" class="form-label" style="color: #8B0026;">Category Name</label>
+        <input type="text" class="form-control" id="categdname" formControlName="categdname">
+      </div>
+      <div class="mb-3">
+        <label for="categdesc" class="form-label" style="color: #8B0026;">Description</label>
+        <input type="text" class="form-control" id="categdesc" formControlName="categdesc">
+      </div>
+
+      <div formArrayName="dancestyles">
+        <div *ngFor="let style of dancestyles.controls; let i=index" class="mb-3">
+          <div [formGroupName]="i">
+            <hr>
+            <h4 style="color: #8B0026;">Style {{ i + 1 }}</h4>
+            <div class="mb-3">
+              <label for="styledname" class="form-label" style="color: #8B0026;">Style Name</label>
+              <input type="text" class="form-control" id="styledname" formControlName="styledname">
+            </div>
+            <div class="mb-3">
+              <label for="styledesc" class="form-label" style="color: #8B0026;">Style Description</label>
+              <input type="text" class="form-control" id="styledesc" formControlName="styledesc">
+            </div>
+            <button type="button" class="btn btn-danger" style="background-color: #c66a89; border-color: #8B0026;" (click)="removeStyleField(i)">Remove Style</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button type="button" class="btn btn-primary" style="background-color: #001F3F; border-color: #001F3F;" (click)="addStyleField()">Add Style</button>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="background-color: #8B0026; border-color: #8B0026;">Update Category</button>
+    </form>
+  </div>
+</div>

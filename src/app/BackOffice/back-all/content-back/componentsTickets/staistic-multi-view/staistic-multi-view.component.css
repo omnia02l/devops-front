@@ -1,0 +1,29 @@
+/* staistic-multi-view.component.css */
+.mat-tab-group {
+    margin: 20px;  /* Provides padding around the tabs */
+  }
+  
+  .mat-tab-content {
+    padding: 20px;  /* Space inside each tab panel */
+  }
+  
+  /* Adjust dialog width globally or via component-specific styles */
+  .mat-dialog-container {
+    width: 80%;  /* Example width */
+    max-width: none;  /* Overrides default max-width */
+  }
+  /* Container holding the components */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Creates as many columns as can fit, each at least 300px wide */
+    gap: 20px; /* Adds space between the elements */
+    padding: 20px;
+}
+
+/* Individual cards within the container */
+.dashboard-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+}

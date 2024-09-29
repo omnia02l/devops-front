@@ -1,0 +1,80 @@
+/* result.component.css */
+.container {
+  padding: 20px;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.result-item {
+  background-color: #e6bbc9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-header {
+  font-size: 1.1rem;
+  color: #A8043C; /* Rouge */
+  margin-bottom: 10px;
+}
+
+.result-body {
+  font-size: 0.95rem;
+  color: #8B0026; /* Rouge foncé */
+  margin-bottom: 10px;
+}
+
+.like-dislike-icons {
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.like-dislike-icons i.fa-thumbs-down {
+  margin-left: 15px;
+}
+
+.result-actions {
+  text-align: right;
+}
+
+.view-button,
+.comment-button {
+  background-color: #4D0013; /* Rouge foncé plus sombre */
+  color: A8043C;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-right: 8px; /* Espacement entre les boutons */
+}
+
+.view-button:hover,
+.comment-button:hover {
+  background-color: #660019; /* Rouge foncé */
+}
+
+.view-button i {
+  margin-left: 5px;
+}
+
+.comment-button {
+  background-color: #001F3F; /* Bleu foncé */
+}
+
+.comment-button:hover {
+  background-color: #A8043C; /* Deep blue color */
+}
+
+/* Supprimez le style par défaut du bouton PrimeNG */
+.p-button {
+  box-shadow: none;
+  border: none;
+  margin: 0;
+}

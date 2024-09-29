@@ -1,0 +1,34 @@
+.add-plan-btn {
+  background-color: #4D0013; /* Dark red */
+  border-color: #660019; /* Slightly lighter red */
+}
+
+.reserve-btn {
+  background-color: #33000C; /* Very dark red */
+  border-color: #4D0013;
+}
+
+.edit-btn {
+  background-color: #660019; /* Medium dark red */
+  border-color: #8B0026;
+}
+
+.delete-btn {
+  background-color: #A8043C; /* Bright red */
+  border-color: #8B0026;
+}
+
+.save-btn {
+  background-color: #001F3F; /* Navy blue */
+  border-color: #33000C;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.form-control {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  width: auto; /* Adjusts width based on parent container's size */
+}

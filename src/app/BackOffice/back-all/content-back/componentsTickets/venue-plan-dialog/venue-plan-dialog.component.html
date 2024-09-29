@@ -1,0 +1,56 @@
+<div class="venue-plan-form">
+  <h2>Add new Venue Plan</h2>
+  <!-- Town dropdown -->
+  <select class="form-control form-select" [(ngModel)]="selectedTownId" (change)="onTownChange(selectedTownId!)" name="town">
+    <option *ngFor="let town of towns" [value]="town.idtown">{{ town.townname }}</option>
+  </select>
+
+  <!-- Venue dropdown -->
+  <select class="form-control form-select" [(ngModel)]="selectedVenueId" (change)="onVenueChange(selectedVenueId!)" name="venue">
+    <option *ngFor="let venue of venues" [value]="venue.idvenue">{{ venue.vname }}</option>
+  </select>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="totalSeats">Total Seats</label>
+      <input type="number" class="form-control form-input" id="totalSeats" [(ngModel)]="newVenuePlan.totalSeats" name="totalSeats" required>
+    </div>
+
+    <div class="form-group">
+      <label for="length">Length (m)</label>
+      <input type="number" class="form-control form-input" id="length" [(ngModel)]="newVenuePlan.length_S" name="length" step="0.1" required>
+    </div>
+
+    <div class="form-group">
+      <label for="width">Width (m)</label>
+      <input type="number" class="form-control form-input" id="width" [(ngModel)]="newVenuePlan.width_S" name="width" step="0.1" required>
+    </div>
+
+    <div class="form-group">
+      <label for="rowLabel">Label of Row</label>
+      <select class="form-control form-select" id="rowLabel" [(ngModel)]="selectedRowLabel" name="rowLabel">
+        <option *ngFor="let label of rowLabels" [value]="label">{{label}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="numberOfSeats">Nombre of seats per Row</label>
+      <input type="number" class="form-control form-input" id="numberOfSeats" [(ngModel)]="numberOfSeatsInRow" name="numberOfSeats" required>
+    </div>
+
+    <button type="button" class="btn btn-secondary add-btn" (click)="addRow()">Ajouter Rangée</button>
+
+    <div class="mt-3">
+      <p>Row added:</p>
+      <ul>
+        <li *ngFor="let row of newVenuePlan.seatStructure | keyvalue">
+          {{ row.key }}: {{ row.value }} sièges
+        </li>
+      </ul>
+    </div>
+
+    <button type="submit" class="btn btn-primary submit-btn">
+      {{ newVenuePlan.idPlan ? 'Mettre à jour' : 'Ajouter' }}
+    </button>
+  </form>
+</div>

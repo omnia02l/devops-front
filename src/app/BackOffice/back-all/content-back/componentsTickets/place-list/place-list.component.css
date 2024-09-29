@@ -1,0 +1,30 @@
+.add-btn {
+    background-color: #A8043C;
+    border-color: #A8043C;
+  }
+  
+  .add-btn:hover {
+    background-color: #8B0026;
+    border-color: #8B0026;
+  }
+  
+  .edit-btn {
+    background-color: #660019;
+    border-color: #660019;
+  }
+  
+  .edit-btn:hover {
+    background-color: #4D0013;
+    border-color: #4D0013;
+  }
+  
+  .delete-btn {
+    background-color: #33000C;
+    border-color: #33000C;
+  }
+  
+  .delete-btn:hover {
+    background-color: #001F3F;
+    border-color: #001F3F;
+  }
+  

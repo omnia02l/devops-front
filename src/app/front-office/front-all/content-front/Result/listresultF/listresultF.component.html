@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<!-- result.component.html -->
+
+<div class="container">
+  <h2 style="color: #A8043C;">Results</h2>
+  <div class="container">
+    <ng-container *ngFor="let result of results">
+      <div class="card" style="display: inline-block; margin-right: 10px; background-color: #f9f9f9;">
+        <div class="container">
+          <span style="color: #001F3F;">{{ result.dateR | date:'short' }}</span>
+        </div>
+        <div class="container">
+          <p style="color: #8B0026;">Score: {{ result.resultat }}</p>
+          <p style="color: #660019;">Number of Votes: {{ result.nombresvotes }}</p>
+          <i class="fa fa-heart" (click)="likeResult(result.idResultat)" style="color: #001F3F;"></i> <span style="color: #001F3F;">{{ result.likes }}</span>
+          <i class="fa fa-thumbs-down" style="margin-left: 10px; color: #001F3F;" (click)="dislikeResult(result.idResultat)"></i> <span style="color: #001F3F;">{{ result.dislikes }}</span>
+
+        </div>
+        <div class="container">
+          <h4 style="color: #A8043C;">Comments:</h4>
+          <ul>
+            <li *ngFor="let comment of result.resultatcommentaires">
+              <p style="color: #8B0026;">{{ comment.comment }}</p>
+              <p style="color: #001F3F;">{{ comment.datecom | date:'short' }}</p>
+              <!-- Autres données à afficher pour chaque commentaire -->
+            </li>
+          </ul>
+        </div>
+
+        <div class="container">
+          <button class="p-button p-button-success" style="margin-right: 4px; background-color: #4D0013; color: white;" (click)="showDetails(result.idResultat)">
+            <i class="fas fa-info-circle" style="color: white;"></i> <span style="color: white;">View</span>
+          </button>
+          <button class="p-button" style="background-color: #001F3F; color: white;" (click)="displayCreateCommentDialog = true">Add Comment</button>
+          <p-dialog header="Create Comment" [(visible)]="displayCreateCommentDialog" [modal]="true" [style]="{'max-width.px': 500, 'width': '100vw', 'min-width.px': 300}">
+
+            <div style="padding: 20px;">
+              <div class="p-field">
+                <label for="commentContent" style="color: #A8043C;">Comment Content:</label>
+                <textarea id="commentContent" [(ngModel)]="newCommentContent" rows="4" cols="50"></textarea>
+              </div>
+              <div class="p-field">
+                <div *ngIf="errorMessage" class="error-message" style="color: #A8043C;">{{ errorMessage }}</div>
+                <button type="button" class="p-button p-button-success" style="margin-right: 4px; background-color: #4D0013; color: white;" (click)="submitComment(result.idResultat)">Submit</button>
+                <button type="button" class="p-button p-button-secondary" style="background-color: #001F3F; color: white;" (click)="cancelCreateComment()">Cancel</button>
+              </div>
+            </div>
+
+
+          </p-dialog>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <p-dialog header="Result Details" [(visible)]="displayDialog" [modal]="true" [style]="{'max-width.px': 500, 'width': '100vw', 'min-width.px': 300}">
+    <div *ngIf="selectedResult" style="padding: 20px;">
+      <p style="color: #8B0026;">Score: {{ selectedResult.resultat }}</p>
+      <p style="color: #660019;">Number of Votes: {{ selectedResult.nombresvotes }}</p>
+      <p style="color: #001F3F;">Date: {{ selectedResult.dateR | date:'short' }}</p>
+      <p style="color: #001F3F;">Likes: {{ selectedResult.likes }}</p>
+      <p style="color: #001F3F;">Dislikes: {{ selectedResult.dislikes }}</p>
+
+
+    </div>
+  </p-dialog>
+</div>
+<app-vote-statistics ></app-vote-statistics>

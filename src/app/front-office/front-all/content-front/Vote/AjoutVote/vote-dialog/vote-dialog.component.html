@@ -1,0 +1,14 @@
+<!-- vote-dialog.component.html -->
+<div class="vote-dialog-container">
+  <h2 class="vote-dialog-title">Vote for Performance</h2>
+
+  <div class="vote-dialog-content">
+    <input type="number" class="vote-dialog-input" [(ngModel)]="data.vote.score" placeholder="Score" required>
+    <textarea class="vote-dialog-input" [(ngModel)]="data.vote.com" placeholder="Comment"></textarea>
+  </div>
+
+  <div class="vote-dialog-actions">
+    <button class="vote-dialog-submit-btn" (click)="submitVote()">Submit</button>
+    <button class="vote-dialog-close-btn" (click)="onNoClick()">Cancel</button>
+  </div>
+</div>

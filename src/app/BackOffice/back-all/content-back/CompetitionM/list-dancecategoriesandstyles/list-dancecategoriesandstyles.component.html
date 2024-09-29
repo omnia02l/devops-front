@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row mb-3">
+    <div class="col">
+      <a [routerLink]="['/admin/add-dancecategoryandstyle']">
+        <button class="btn btn-circle btn-success">
+          <span class="plus-symbol">+</span>
+        </button>
+      </a>
+      <span class="btn-text">Add Dance Category</span>
+    </div>
+  </div>
+</div>
+
+<div class="card dance-category-card">
+  <h5 class="card-header">List of dance categories and styles</h5>
+  <div class="card-body">
+    <ng-container *ngFor="let category of danceCategories">
+      <div class="card mb-3">
+        <div class="card-header category-header" (click)="toggleStyles(category)">
+          <h5 class="mb-0">
+            <button class="btn btn-link btn-fixed-width custom-text-color" type="button">
+              {{ category.categdname }}
+            </button>
+
+
+            <!-- Bouton Update avec appel de la fonction updateDancecategory -->
+            <button class="btn btn-sm btn-warning btn-fixed-width" (click)="updateCategory(category.idcategd!)">Update</button>
+
+            <details class="btn btn-xs btn-primary toggle-btn btn-fixed-width" [open]="category.showStyles">
+              <summary class="toggle-summary">
+                {{ category.showStyles ? '<' : '>' }}
+              </summary>
+            </details>
+
+            <a [routerLink]="['/admin/add-dancestyle-to-category', category.idcategd]">
+              <button class="btn btn-sm btn-primary toggle-btn btn-fixed-width">
+                Add Style to Category
+              </button>
+            </a>
+
+            <button class="btn btn-sm btn-danger btn-fixed-width" (click)="deleteCategory(category.idcategd!)">Delete Category</button>
+          </h5>
+        </div>
+        <div *ngIf="category.showStyles" class="card-body">
+          <ul class="list-unstyled">
+            <li *ngFor="let style of category.dancestyles" class="style-item">
+              <div class="d-flex align-items-center">
+                <strong class="custom-text-color">{{ style.styledname }}</strong>
+                <button class="btn btn-sm btn-danger ml-2 btn-fixed-width" (click)="removeStyle(category.idcategd!, style.idstyled!)">Remove Style</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

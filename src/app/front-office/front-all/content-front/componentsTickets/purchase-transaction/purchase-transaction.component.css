@@ -1,0 +1,79 @@
+/* Dans votre fichier CSS, par exemple ticket-details.component.css */
+#downloadableContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .ticket-card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    width: 90%; /* Ajustez en fonction de vos préférences */
+  }
+  
+  .ticket-detail-header {
+    background-color: #00796b; /* Exemple de couleur de marque */
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .ticket-info {
+    padding: 15px;
+  }
+  
+  .ticket-reference {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .qr-code {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 10px auto;
+  }
+  
+  .loading-container {
+    text-align: center;
+  }
+  
+  .download-btn {
+    background-color: #f50057;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .download-btn:hover {
+    background-color: #c51162;
+  }
+  
+  @media (max-width: 768px) {
+    .ticket-card {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  
+  .ticket-section {
+    margin-top: 15px;
+  }
+  
+  mat-card-content p {
+    margin: 5px 0;
+  }
+  
+  mat-icon {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  
+ 

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h4 style="color: #A8043C;">Add Dance Style to Category</h4>
+      <form (ngSubmit)="addDanceStyleToCategory()" #danceStyleForm="ngForm">
+        <div class="form-group">
+          <label for="danceStyleName" style="color: #8B0026;">Dance Style Name:</label>
+          <input type="text" class="form-control" id="danceStyleName" name="danceStyleName" required
+            [(ngModel)]="danceStyleName" #name="ngModel">
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+            <div *ngIf="name.errors?.['required']">Dance Style Name is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="danceStyleDescription" style="color: #8B0026;">Dance Style Description:</label>
+          <input type="text" class="form-control" id="danceStyleDescription" name="danceStyleDescription" required
+            [(ngModel)]="danceStyleDescription" #description="ngModel">
+          <div *ngIf="description.invalid && (description.dirty || description.touched)" class="text-danger">
+            <div *ngIf="description.errors?.['required']">Dance Style Description is required.</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="background-color: #660019;">Add Dance Style</button>
+      </form>
+
+      <!-- Affichage des messages de succès et d'erreur -->
+      <div *ngIf="successMessage" class="alert alert-success" role="alert">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>

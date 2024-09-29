@@ -1,0 +1,37 @@
+mat-card {
+  max-width: 400px;
+  margin: auto;
+}
+
+mat-card-header {
+  justify-content: center;
+}
+
+mat-card-title {
+  font-size: 1.5em;
+}
+
+mat-card-content {
+  text-align: center;
+}
+
+mat-card-actions {
+  justify-content: center;
+}
+
+button {
+  margin: 5px;
+}
+
+/* Adjust this based on your preferences */
+mat-dialog-content {
+  overflow-y: hidden !important; /* Prevent scrolling inside the dialog */
+}
+
+mat-progress-bar {
+  margin-top: 10px;
+}
+
+input[type="file"] {
+  display: none; /* Hide the default file input */
+}

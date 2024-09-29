@@ -1,0 +1,217 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+
+  header, nav, section, footer {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+
+  }
+  @keyframes changeColor {
+    0% {
+      background-color: #A8043C; /* Début de l'animation : couleur rose foncé */
+    }
+    20% {
+      background-color: #8B0026; /* Une couleur intermédiaire */
+    }
+    40% {
+      background-color: #660019; /* Une autre couleur intermédiaire */
+    }
+    60% {
+      background-color: #4D0013; /* Encore une autre couleur intermédiaire */
+    }
+    80% {
+      background-color: #33000C; /* Une autre couleur intermédiaire */
+    }
+    100% {
+        background-color: #001F3F; /* Fin de l'animation : couleur bleu marine */
+    }
+  }
+
+  header {
+    color: #FFF; /* Blanc */
+    text-align: center;
+    padding: 5px;
+    font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+    animation: changeColor 10s infinite alternate; /* Utilisation de l'animation avec une durée de 10 secondes, en boucle */
+  }
+
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+
+  }
+
+
+
+  nav ul li a {
+    color: #000; /* Noir */
+    text-decoration: none;
+    font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+
+  }
+
+  nav ul li a:hover {
+    color: #001F3F; /* Bleu marine */
+  }
+  section {
+    background-color: #E8C4D0; /* Rose */
+    padding: 0;
+    height: 56.25vw; /* Rapport d'aspect 16:9 */
+    max-height: 100vh; /* Ne dépasse pas la hauteur de l'écran */
+    overflow: hidden; /* Masque le contenu qui dépasse */
+    font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+
+  }
+
+  .content-wrapper {
+    padding: 20px;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto; /* Ajoute une barre de défilement si le contenu est trop long */
+  }
+
+  footer {
+    background-color: #201C2C;
+    color: #FFF;
+    text-align: center;
+    padding: 0px 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+header, nav, section, footer {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+
+}
+@keyframes changeColor {
+  0% {
+    background-color: #A8043C; /* Début de l'animation : couleur rose foncé */
+  }
+  20% {
+    background-color: #8B0026; /* Une couleur intermédiaire */
+  }
+  40% {
+    background-color: #660019; /* Une autre couleur intermédiaire */
+  }
+  60% {
+    background-color: #4D0013; /* Encore une autre couleur intermédiaire */
+  }
+  80% {
+    background-color: #33000C; /* Une autre couleur intermédiaire */
+  }
+  100% {
+    background-color: #001F3F; /* Fin de l'animation : couleur bleu marine */
+  }
+}
+
+header {
+  color: #FFF; /* Blanc */
+  text-align: center;
+  padding: 5px;
+  font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+  animation: changeColor 10s infinite alternate; /* Utilisation de l'animation avec une durée de 10 secondes, en boucle */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+  font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+
+}
+
+nav ul li a {
+  color: #000; /* Noir */
+  text-decoration: none;
+  font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+
+}
+
+nav ul li a:hover {
+  color: #001F3F; /* Bleu marine */
+}
+
+section {
+  background-color: #E8C4D0; /* Rose */
+  padding: 0;
+  height: 56.25vw; /* Rapport d'aspect 16:9 */
+  max-height: 100vh; /* Ne dépasse pas la hauteur de l'écran */
+  overflow: hidden; /* Masque le contenu qui dépasse */
+  font-family: Palatino Linotype, sans-serif; /* Police par défaut */
+
+}
+
+.content-wrapper {
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto; /* Ajoute une barre de défilement si le contenu est trop long */
+}
+
+footer {
+  background-color: #201C2C;
+  color: #FFF;
+  text-align: center;
+  padding: 0px 0;
+}
+h6 {
+  font-family: Garet, sans-serif; /* Utilisation de la police Garet */
+  color: white; /* Couleur du texte en blanc */
+  font-weight: bold; /* Police en gras */
+  text-shadow:
+    0px 5px 5px rgba(0, 0, 0, 0.2), /* Ombre légère au-dessus */
+    0px 10px 10px rgba(0, 0, 0, 0.4), /* Ombre plus prononcée */
+    0px 15px 15px rgba(0, 0, 0, 0.6); /* Ombre la plus prononcée */
+}
+
+.video-section {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.video-container {
+  position: relative; /* Changed from absolute to relative for testing */
+  width: 100%;
+  height: 300px; /* Set a fixed height for testing */
+  background-color: red; /* Temporary background color to check visibility */
+}
+
+
+footer a {
+  color: #FFF; /* Couleur du lien */
+  text-decoration: none; /* Supprime le soulignement par défaut du lien */
+}
+

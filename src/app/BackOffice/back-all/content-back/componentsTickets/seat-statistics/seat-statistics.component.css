@@ -1,0 +1,138 @@
+/* General Layout and Background Settings */
+.body, .sidenav-container {
+  background-image: url('src/assets/FrontOffice/images/young-graceful-ballet-dancer-isolated-purple-studio-background-neon-light.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keeps the background fixed during scrolling */
+}
+
+.sidenav-container {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden; /* Hides horizontal scrolling if any */
+}
+
+.page-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidenav Styling */
+.sidenav {
+  width: 250px;
+  background-color: rgba(199, 176, 238, 0.8); /* Dark purple with transparency */
+}
+
+.sidebar-content {
+  color: white;
+  padding: 15px;
+}
+
+/* Main Content Area */
+.main-content {
+  position: relative;
+}
+
+.toggle-button {
+  color: white;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000; /* Ensures the button is above all other content */
+}
+
+/* Theater Container and Screen Direction */
+.theater-container {
+  background-color: #06060600; /* Midnight blue for the theater background */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.theater-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 0;
+}
+
+.screen-direction .screen {
+  background-color: #c7b0eeaa;
+  padding: 5px 20px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.screen-direction .screen-bar {
+  background-color: #c7b0eeaa;
+  height: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Seat Row and Seat Styling */
+.seat-row-seats .seat {
+  background-color: #9fa8da; /* Light blue for available seats */
+  margin: 0 4px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.seat-row-seats .seat .mat-icon {
+  color: white; /* Seat icon in white */
+}
+
+.seat-row-seats .seat .seat-number {
+  position: absolute;
+  bottom: -20px;
+  color: white; /* Seat number in white */
+  font-size: 0.7rem;
+}
+
+/* Specific States for Seats based on Booking Status */
+.seat-row-seats .seat.never-booked {
+  background-color: #f8d7da; /* Light red for never booked */
+}
+
+.seat-row-seats .seat.booked-once {
+  background-color: #d1ecf1; /* Light blue for booked once */
+}
+
+.seat-row-seats .seat.booked-more-than-once {
+  background-color: #d4edda; /* Light green for booked more than once */
+}
+
+.seat-row-seats .seat:hover,
+.seat-row-seats .seat.selected:hover {
+  background-color: #9ebf9f; /* Lighter green for hovered or selected seats */
+}
+
+.seat-row-seats .seat.occupied {
+  background-color: #ef5350; /* Red for occupied seats */
+  cursor: not-allowed;
+}
+
+.seat-row-seats .seat.selected {
+  background-color: #4caf50; /* Green for selected seats */
+}
+
+/* Confirmation Button Styles */
+.action-buttons .confirm-btn {
+  background-color: #4caf50; /* Green for the confirmation button */
+  color: white;
+}
+
+.action-buttons .confirm-btn:hover {
+  background-color: #485499; /* Darker green on hover */
+}

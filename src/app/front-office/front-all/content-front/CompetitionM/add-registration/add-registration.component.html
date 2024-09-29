@@ -1,0 +1,157 @@
+<!-- add-registration.component.html -->
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Add Registration</h5>
+          <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="custom-form custom-form-angular">
+
+      <!-- Première partie du formulaire -->
+<!-- Première partie du formulaire -->
+
+<ng-container *ngIf="currentFormPart === 1">
+  <div class="mb-3 form-part-1 card">
+    <label for="file" class="form-label">Team image:</label>
+    <label for="file" class="custum-file-upload">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z" fill=""></path>
+          </g>
+        </svg>
+      </div>
+      <div class="text">
+        <span>Click to upload image</span>
+      </div>
+      <input id="file" type="file" (change)="onFileSelected($event)">
+    </label>
+    <div *ngIf="registrationForm.get('videolink')?.hasError('required')" class="text-danger">Video Link is required.</div>
+  </div>
+  <button type="button" class="btn-next mt-3" (click)="nextFormPart()">Next</button>
+</ng-container>
+
+
+
+            <!-- Deuxième partie du formulaire -->
+            <ng-container *ngIf="currentFormPart === 2" >
+              <div formGroupName="team" class="form-part-2 card">
+                <div class="mb-3">
+                  <label for="teamname" class="form-label">Team Name:</label>
+                  <input type="text" id="teamname" class="form-control" formControlName="teamname">
+                  <div *ngIf="registrationForm.get('team.teamname')?.hasError('required')" class="text-danger"> Team Name is required. </div>
+                  <div *ngIf="registrationForm.get('team.teamname')?.hasError('minlength')" class="text-danger"> Team Name must be at least 3 characters long. </div>
+                  <div *ngIf="registrationForm.get('team.teamname')?.hasError('maxlength')" class="text-danger"> Team Name cannot be more than 10 characters long. </div>
+                  <div *ngIf="registrationForm.get('team.teamname')?.hasError('pattern')" class="text-danger"> Team Name should contain only letters and no numbers. </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="leadername" class="form-label">Leader Name:</label>
+                  <input type="text" id="leadername" class="form-control" formControlName="leadername">
+                  <div *ngIf="registrationForm.get('team.leadername')?.hasError('required')" class="text-danger"> Leader Name is required. </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="tdescreption" class="form-label">Team Description:</label>
+                  <input type="text" id="tdescreption" class="form-control" formControlName="tdescreption">
+                </div>
+
+                <div class="mb-3">
+                  <label for="teamtype" class="form-label">Team Type:</label>
+                  <select id="teamtype" class="form-control" formControlName="teamtype">
+                    <option value="Solo">Solo</option>
+                    <option value="Group">Group</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="skilllevel" class="form-label">Skill Level:</label>
+                  <select id="skilllevel" class="form-control" formControlName="skilllevel">
+                    <option value="Beginner">Beginner</option>
+                    <option value="Professional">Professional</option>
+                    <option value="Intermediate">Intermediate</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="button" class="btn-return mt-3" (click)="returnToFormPart(1)">Return</button>
+              <button type="button" class="btn-next mt-3" (click)="nextFormPart()">Next</button>
+            </ng-container>
+
+ <!-- Troisième partie du formulaire -->
+<ng-container *ngIf="currentFormPart === 3"   >
+  <div class="table-responsive">
+    <table class="schedule-table custom-table"> <!-- Ajout de la classe custom-table -->
+      <!-- En-tête du tableau -->
+      <thead>
+        <tr>
+          <th>nb</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Date of Birth</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>delete dancer</th>
+        </tr>
+      </thead>
+      <!-- Corps du tableau -->
+      <tbody formArrayName="dancers">
+        <tr *ngFor="let dancer of dancers.controls; let i = index" [formGroupName]="i">
+          <td>{{ i + 1 }}</td>
+          <td>
+            <input type="text" class="form-control" formControlName="dfirstname" required>
+            <div *ngIf="dancer.get('dfirstname')?.hasError('required')" class="text-danger"> First Name is required. </div>
+          </td>
+          <td>
+            <input type="text" class="form-control" formControlName="dlastname" required>
+            <div *ngIf="dancer.get('dlastname')?.hasError('required')" class="text-danger"> Last Name is required. </div>
+          </td>
+          <td>
+            <input type="date" class="form-control" formControlName="dateofbirthd" required>
+          </td>
+          <td>
+            <select formControlName="dgender" required>
+              <option value="man">Man</option>
+              <option value="women">Women</option>
+              <option value="other">Other</option>
+            </select>
+          </td>
+          <td>
+            <input type="email" class="form-control" formControlName="demail" required>
+            <div *ngIf="dancer.get('demail')?.hasError('required')" class="text-danger"> Email is required. </div>
+            <div *ngIf="dancer.get('demail')?.hasError('email')" class="text-danger"> Please enter a valid email address. </div>
+          </td>
+          <td>
+            <div class="add-dancer-section">
+              <span class="add-dancer-title">remove Dancer </span>
+            <button type="button" class="btn btn-pink btn-circle" (click)="removeDancerField(i)"><span class="plus-symbol">-</span></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+  <div class="add-dancer-section">
+    <span class="add-dancer-title">Add Dancer </span>
+    <button type="button" class="btn btn-pink btn-circle" (click)="addDancer()">
+      <span class="plus-symbol">+</span>
+    </button>
+  </div>
+
+  <!-- Bouton de retour et messages d'erreur -->
+  <button type="button" class="btn-return mt-3" (click)="returnToFormPart(2)">Return</button>
+
+  <div *ngIf="registrationForm.controls['teamError'].value" class="text-danger">
+    {{ registrationForm.controls['teamError'].value }}
+  </div>
+
+  <button type="submit" class="btn-add-registration">Add Registration</button>
+</ng-container>
+
+
