@@ -20,7 +20,7 @@ RUN npm run build --prod
 FROM nginx:alpine
 
 # Copier les fichiers générés dans le répertoire par défaut de Nginx
-COPY --from=build /app/dist/<nom-du-projet> /usr/share/nginx/html
+COPY --from=build /app/dist/DanceScapeEx /usr/share/nginx/html
 
 # Exposer le port 80 pour l'accès HTTP
 EXPOSE 80
