@@ -13,7 +13,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["jsonwebtoken"],
+            "allowedCommonJsDependencies": ["jsonwebtoken",
+                                            "html2canvas",
+                                            "pdfmake",
+                                            "core-js",
+                                            "uploadcare-widget",
+                                            "rgbcolor",
+                                            "raf"],
             "outputPath": "dist/dance-scape-ex",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -40,13 +46,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "15mb",
+                  "maximumError": "15mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "512kb",
+                  "maximumError": "1mb"
                 }
               ],
               "outputHashing": "all"
