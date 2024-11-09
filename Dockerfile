@@ -1,29 +1,29 @@
-# Étape 1 : Utiliser une image de Node.js version 18 pour construire l'application Angular
+# Step 1: Use Node.js to build the Angular application
 FROM node:18-alpine as build
 
-# Définir le répertoire de travail dans le conteneur
-WORKDIR /app
+# Set the working directory in the container
+WORKDIR /frontend
 
-# Copier les fichiers package.json et package-lock.json dans le conteneur
+# Copy package.json and package-lock.json files to install dependencies
 COPY package*.json ./
 
-# Installer les dépendances npm pour l'application Angular
+# Install npm dependencies for the Angular project
 RUN npm install
 
-# Copier tout le code source du projet Angular dans le conteneur
+# Copy the Angular project files
 COPY . .
 
-# Construire l'application Angular en mode production
+# Build the Angular application in production mode
 RUN npm run build --prod
 
-# Étape 2 : Utiliser une image Nginx pour servir l'application Angular
+# Step 2: Use Nginx to serve the Angular application
 FROM nginx:alpine
 
-# Copier les fichiers générés dans le répertoire par défaut de Nginx
-COPY --from=build /app/dist/DanceScapeEx /usr/share/nginx/html
+# Copy the built Angular files from the previous stage to Nginx
+COPY --from=build /frontend/dist/dance-scape-ex /usr/share/nginx/html
 
-# Exposer le port 80 pour l'accès HTTP
-EXPOSE 80
+# Expose port 80 for HTTP
+EXPOSE 4200
 
-# Démarrer Nginx
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
