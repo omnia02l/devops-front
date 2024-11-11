@@ -1,2 +1,2 @@
-# Ignore all video files in the assets/video directory
-assets/video/*.mp4
+# Ignore specific video file
+assets/video/stars_muet.mp4
