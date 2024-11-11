@@ -4,12 +4,14 @@ FROM node:18-alpine as build
 # Créer et définir le répertoire de travail
 WORKDIR /front
 
-# Copier les fichiers de configuration et de code source
+# Copier les fichiers de configuration (package.json et package-lock.json) en premier
 COPY package*.json ./
-COPY . .
 
 # Installer les dépendances
 RUN npm install
+
+# Copier le reste des fichiers sources
+COPY . .
 
 # Construire l'application Angular
 RUN npm run build -- --prod
@@ -18,7 +20,7 @@ RUN npm run build -- --prod
 FROM nginx:alpine
 
 # Copier les fichiers construits depuis l'étape précédente
-COPY --from=build /app/dist/ /usr/share/nginx/html
+COPY --from=build /front/dist/ /usr/share/nginx/html
 
 # Exposer le port 80 pour l'accès à l'application
 EXPOSE 80
