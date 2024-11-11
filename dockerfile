@@ -4,13 +4,13 @@ FROM node:18-alpine as build
 # Créer et définir le répertoire de travail
 WORKDIR /front
 
-# Copier les fichiers de configuration (package.json et package-lock.json) en premier
+# Copier uniquement les fichiers nécessaires (dépendances) pour utiliser le cache de Docker
 COPY package*.json ./
 
 # Installer les dépendances
 RUN npm install
 
-# Copier le reste des fichiers sources
+# Copier le reste des fichiers de l'application (les sources)
 COPY . .
 
 # Construire l'application Angular
