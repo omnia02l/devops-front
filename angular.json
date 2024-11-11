@@ -13,7 +13,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["jsonwebtoken"],
+            "allowedCommonJsDependencies": [
+              "jsonwebtoken"
+            ],
             "outputPath": "dist/dance-scape-ex",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -101,11 +103,23 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "d72ddd0e-c3b7-4431-bcf8-8a983efcd227"
+    "analytics": "d72ddd0e-c3b7-4431-bcf8-8a983efcd227",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

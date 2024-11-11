@@ -1,5 +1,5 @@
 # Étape 1: Construire l'application Angular
-FROM node:node:18-alpine as build
+FROM node:18-alpine as build
 
 # Créer et définir le répertoire de travail
 WORKDIR /front
