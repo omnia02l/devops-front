@@ -4,3 +4,31 @@ dist
 .gitignore
 Dockerfile
 .dockerignore
+# Exclure les dépendances Node.js (elles sont installées pendant la construction)
+node_modules/
+
+# Exclure les fichiers générés (par exemple, le répertoire dist/ avec les builds)
+dist/
+
+# Exclure les informations liées à Git
+.git/
+
+# Exclure les fichiers spécifiques Docker
+.dockerignore
+Dockerfile
+
+# Exclure les logs et fichiers d'environnement
+*.log
+.env
+npm-debug.log
+
+# Exclure les répertoires de tests
+test/
+tests/
+
+# Exclure les fichiers spécifiques IDE
+.vscode/
+.idea/
+
+# Fichiers système ou d'OS inutiles
+.DS_Store
