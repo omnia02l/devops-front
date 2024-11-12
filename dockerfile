@@ -1,5 +1,5 @@
 # Étape 1: Construire l'application Angular
-FROM node:20-alpine as build
+FROM node:18-alpine as build
 
 
 # Créer et définir le répertoire de travail
@@ -15,17 +15,17 @@ RUN npm install
 COPY . .
 
 # Construire l'application Angular
-RUN npm run build -- --configuration production
+RUN npm run build --prod
 
 
 # Étape 2: Créer l'image finale
 FROM nginx:alpine
 
 # Copier les fichiers construits depuis l'étape précédente
-COPY --from=build /front/dist/ /usr/share/nginx/html
+COPY --from=build /front/dist/dance-scape-ex /usr/share/nginx/html
 
 # Exposer le port 80 pour l'accès à l'application
-EXPOSE 80
+EXPOSE 4200
 
 # Démarrer Nginx
 CMD ["nginx", "-g", "daemon off;"]
