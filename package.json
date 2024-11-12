@@ -38,6 +38,7 @@
     "bootstrap": "^5.3.3",
     "chart.js": "^3.9.1",
     "chartjs-plugin-datalabels": "^2.2.0",
+    "dance-scape-ex": "file:",
     "html2canvas": "^1.4.1",
     "html5-qrcode": "^2.3.8",
     "jsonwebtoken": "^9.0.2",
