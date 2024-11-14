@@ -14,7 +14,7 @@ import {AccountStatusStats} from "../models/AccountStatusStats";
 })
 export class AccountService {
 
-  host = "http://localhost:8085/account/";
+  host = "http://localhost:8082/account/";
 
   constructor(private http: HttpClient, private router:Router) {
   }
@@ -40,7 +40,7 @@ export class AccountService {
   }
 
   public createAccount(data: SignupRequest): Observable<any> {
-    return this.http.post<any>("http://localhost:8085/auth/signup", data);
+    return this.http.post<any>("http://localhost:8082/auth/signup", data);
   }
 
   public getPrincipal():Observable<UserDTO>{
