@@ -1,18 +1,22 @@
+#docker-compose.yml// pour le front
 version: '3.8'
 
 services:
   frontend:
     build:
-      context: .  # Use the current directory as the build context
-      dockerfile: Dockerfile  # Specify the Dockerfile for the frontend
+      context: .  # Utiliser le répertoire actuel comme contexte de build
+      dockerfile: Dockerfile  # Spécifier le Dockerfile pour le frontend
     ports:
-      - "4200:80"  # Map port 4200 on the host to port 80 in the container (Nginx serves on port 80)
+      - "4200:80"  # Mapper le port 4200 de l'hôte vers le port 80 dans le conteneur (Nginx sert sur le port 80)
     volumes:
-      - .:/frontend  # Optional: mount the current directory for live updates
-      - /frontend/node_modules  # Avoid mounting node_modules
+      - .:/frontend  # Optionnel : monter le répertoire actuel pour les mises à jour en direct
+      - /frontend/node_modules  # Éviter de monter node_modules
     networks:
-      - frontend-network
+      - app-network  # Ajouter le réseau partagé avec le backend
+      - frontend-network  # Garder le réseau du frontend si nécessaire
 
 networks:
+  app-network:
+    external: true  # Utiliser le réseau existant du backend
   frontend-network:
     driver: bridge
