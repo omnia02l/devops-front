@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class AuthService {
 
-  host = "http://localhost:8085/auth/";
+  host = "http://localhost:8082/auth/";
 
   constructor(private http: HttpClient, private router: Router) {
   }
